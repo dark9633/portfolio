@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Utils {
 	
+	/* 한글 키워드 분석 사이트에서 쿼리를 날린다. */
 	public static JSONObject koreanTextPharase(String text) throws Exception{
 		String jsonString = Jsoup.connect("https://open-korean-text.herokuapp.com/extractPhrases?text="+URLEncoder.encode(text, "UTF-8"))
 	    		.timeout(10000).header("Content-Type", "application/json")
@@ -226,7 +227,7 @@ public class Utils {
 		return resultValue;
 	}// getHtml end
 	
-	
+	/* MAP 변환 클래스 */
 	public static Map<String, String> JSONStringToMap(String str) {
 		Map<String, String> map = new HashMap<String, String>();
 		ObjectMapper mapper = new ObjectMapper();

@@ -38,6 +38,7 @@ public class UploadFileUtils {
 		return uploadedFileName;
 	}
 
+	//기본 이미지 사이즈로 업로드 | 고유 아이디로 이름이 추가 수정된다.
 	public static String defaultUploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception{
 		
 		UUID uid = UUID.randomUUID();
@@ -101,6 +102,7 @@ public class UploadFileUtils {
 		return uploadedFileName;
 	}
 	
+	/* 디렉토리명을 위한 날짜 확인 코드 */
 	private static String calcPath(String uploadPath){
 		Calendar cal = Calendar.getInstance();
 		String yearPath = File.separator + cal.get(Calendar.YEAR);
@@ -110,6 +112,7 @@ public class UploadFileUtils {
 		return datePath;
 	}
 	
+	/* 디렉토리 생성 코드 */
 	private static void makeDir(String uploadPath, String... paths){
 		
 		if(new File(paths[paths.length-1]).exists()){ return; }

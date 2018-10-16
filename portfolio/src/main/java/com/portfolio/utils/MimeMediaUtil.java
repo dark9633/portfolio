@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.springframework.http.MediaType;
 
+/*
+ * 이미지의 미디어 타입을 확인하고 리턴한다.
+ * */
 public class MimeMediaUtil {
 
 	private static Map<String, MediaType> mediaMap;
