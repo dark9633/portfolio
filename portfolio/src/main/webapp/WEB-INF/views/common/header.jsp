@@ -15,19 +15,19 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="/">개인이력</a></li>
+					<li><a href="/info">개인이력</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							포트폴리오<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/">서버개발</a></li>
-							<li><a href="/">플레이스24</a></li>
-							<li><a href="/">피그미웹</a></li>
-							<li><a href="/">푸시미웹</a></li>
-							<li><a href="/">관리자앱</a></li>
-							<li><a href="/">피그미앱</a></li>
-							<li><a href="/">자동화</a></li>
+							<li><a href="/portfolio/list/서버개발">서버개발</a></li>
+							<li><a href="/portfolio/list/플레이스24">플레이스24</a></li>
+							<li><a href="/portfolio/list/피그미웹">피그미웹</a></li>
+							<li><a href="/portfolio/list/푸시미웹">푸시미웹</a></li>
+							<li><a href="/portfolio/list/관리자앱">관리자앱</a></li>
+							<li><a href="/portfolio/list/피그미앱">피그미앱</a></li>
+							<li><a href="/portfolio/list/자동화">자동화</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -35,12 +35,21 @@
 							기술개발<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/">LINUX</a></li>
-							<li><a href="/">WEB</a></li>
-							<li><a href="/">BOOTSTRAP</a></li>
-							<li><a href="/">ANDROID</a></li>
-							<li><a href="/">MARIADB</a></li>
-							<li><a href="/">API</a></li>
+							<li><a href="/skills/list/linux">LINUX</a></li>
+							<li><a href="/skills/list/web">WEB</a></li>
+							<li><a href="/skills/list/bootstrap">BOOTSTRAP</a></li>
+							<li><a href="/skills/list/android">ANDROID</a></li>
+							<li><a href="/skills/list/database">DATABASE</a></li>
+							<li><a href="/skills/list/api">API</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							서비스<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/board/list/question">질문사항</a></li>
+							<li><a href="/board/list/none">미해결문제</a></li>
 						</ul>
 					</li>
 				</ul>

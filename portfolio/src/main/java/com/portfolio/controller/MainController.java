@@ -37,7 +37,7 @@ public class MainController {
 	/* 포트폴리오 개인 정보 페이지 */
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String info(Locale locale, Model model) throws Exception {
-		return "info";
+		return "info/info";
 	}
 	
 	/* 사이트맵 제출을 위한 컨트롤러 */
