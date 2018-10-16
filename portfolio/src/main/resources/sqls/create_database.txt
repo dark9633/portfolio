@@ -1,0 +1,13 @@
+1. 데이터베이스 생성(디비명 portfolio)
+2. 유저 생성(내부접속)
+3. 유저 생성(외부접속)
+4. 권한 부여(내부 전체 권한 부여)
+5. 권한 부여(외부 전체 권한 부여)
+6. 변경사항 적용
+
+1. create database portfolio;
+2. create user 'userid'@'localhost' identified by 'password';
+3. create user 'userid'@'%' identified by 'password';
+4. grant all privileges on portfolio.* to userid@localhost;
+5. grant all privileges on portfolio.* to userid@'%';
+6. flush privileges;

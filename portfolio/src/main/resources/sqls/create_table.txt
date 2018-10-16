@@ -1,0 +1,73 @@
+2018-10-16 (포트폴리오 사이트를 위한 기본적인 테이블만 생성)
+
+CREATE TABLE member(
+	memNumber	INTEGER 		NOT NULL 	COMMENT '',
+	nickName	VARCHAR(30)		NOT NULL 	COMMENT '회원 구분 고유(unique) 닉네임',
+	email		VARCHAR(150)	NOT NULL 	DEFAULT '' COMMENT '로그인을 위한 이메일(아이디)',
+	pwd			VARCHAR(200)	NOT NULL 	DEFAULT '' COMMENT '로그인을 위한 패스워드 | 암호화 처리를 위해 수치가 조금 높게 잡혀있다',
+	regDate		datetime		NOT NULL	DEFAULT NOW() 		COMMENT '회원 가입일 자동 등록일자 설정'
+)
+COMMENT '회원 테이블';
+ALTER TABLE member ADD UNIQUE unique_id(nickName);
+ALTER TABLE member ADD CONSTRAINT PK_ADMIN PRIMARY KEY(memNumber);
+ALTER TABLE member MODIFY COLUMN memNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+
+CREATE TABLE skills(
+	skNumber	INTEGER 		NOT NULL 	COMMENT '',
+	nickName	VARCHAR(30)		NOT NULL 	COMMENT '스킬을 작성한 회원의 고유키 FOREIGN KEY',
+	category	VARCHAR(30)		NOT NULL 	COMMENT '스킬 카테고리 구분',
+	title		VARCHAR(150)	NOT NULL 	COMMENT '스킬 기본 제목 mysql 기준 50자',
+	content		TEXT			NOT NULL 	COMMENT '스킬 설명',
+	viewCount	INTEGER 		NOT NULL 	DEFAULT 0 		COMMENT '스킬 조회 카운트 수',
+	regDate		datetime		NOT NULL		DEFAULT NOW() 	COMMENT '스킬 작성일 자동 등록일자 설정'
+)
+COMMENT '스킬 테이블';
+ALTER TABLE skills ADD CONSTRAINT PK_ADMIN PRIMARY KEY(skNumber);
+ALTER TABLE skills MODIFY COLUMN skNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+ALTER TABLE skills ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDATE CASCADE;
+
+CREATE TABLE portfolio(
+	pfNumber	INTEGER 		NOT NULL 	COMMENT '',
+	nickName	VARCHAR(30)		NOT NULL 	COMMENT '포트폴리오를 작성한 회원의 고유키 FOREIGN KEY',
+	category	VARCHAR(150)	NOT NULL 	COMMENT '포트폴리오 카테고리 구분',
+	title		VARCHAR(150)	NOT NULL 	COMMENT '포트폴리오 기본 제목 mysql 기준 50자',
+	content		TEXT			NOT NULL 	COMMENT '포트폴리오 설명',
+	viewCount	INTEGER 		NOT NULL 	DEFAULT 0 COMMENT '포트폴리오 조회 카운트 수',
+	regDate		datetime		NOT NULL		DEFAULT NOW() 		COMMENT '포트폴리오 작성일 자동 등록일자 설정'
+)
+COMMENT '포트폴리오 테이블';
+ALTER TABLE portfolio ADD CONSTRAINT PK_ADMIN PRIMARY KEY(pfNumber);
+ALTER TABLE portfolio MODIFY COLUMN pfNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+ALTER TABLE portfolio ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDATE CASCADE;
+
+CREATE TABLE board(
+	bNumber		INTEGER 		NOT NULL 	COMMENT '',
+	nickName	VARCHAR(30)		NOT NULL 	COMMENT '게시물을 작성한 회원의 고유키 FOREIGN KEY',
+	category	VARCHAR(150)	NOT NULL 	COMMENT '게시물 카테고리 구분',
+	title		VARCHAR(150)	NOT NULL 	COMMENT '게시물 기본 제목 mysql 기준 50자',
+	content		TEXT			NOT NULL 	COMMENT '게시물 내용',
+	reCount		INTEGER 		NOT NULL 	DEFAULT 0 COMMENT '댓글 카운트 수',
+	viewCount	INTEGER 		NOT NULL 	DEFAULT 0 COMMENT '게시물 조회 카운트 수',
+	regDate		datetime		NOT NULL	DEFAULT NOW() 		COMMENT '게시물 작성일 자동 등록일자 설정'
+)
+COMMENT '게시판 테이블';
+ALTER TABLE board ADD CONSTRAINT PK_ADMIN PRIMARY KEY(bNumber);
+ALTER TABLE board MODIFY COLUMN bNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+ALTER TABLE board ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDATE CASCADE;
+
+CREATE TABLE reply(
+	reNumber	INTEGER 		NOT NULL 	COMMENT '',
+	bNumber		INTEGER 		NOT NULL 	COMMENT '댓글이 작성된 게시물 고유 키',
+	nickName	VARCHAR(30)		NOT NULL 	COMMENT '댓글을 작성한 회원의 고유키 FOREIGN KEY',
+	content		VARCHAR(600)	NOT NULL 	COMMENT '댓글 내용, 200자 제한',
+	regDate		datetime		NOT NULL	DEFAULT NOW() 		COMMENT '댓글 작성일 자동 등록일자 설정'
+)
+COMMENT '게시판 테이블';
+ALTER TABLE reply ADD CONSTRAINT PK_ADMIN PRIMARY KEY(reNumber);
+ALTER TABLE reply MODIFY COLUMN reNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+ALTER TABLE reply ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDATE CASCADE;
+
+=====================================================
+
+추후 변경 + 추가사항이 있을 경우 하단에 기재한다. 컬럼명이 수정되거나 추가되는 경우 domain 의 vo 객체도 수정이 필요하다.
+

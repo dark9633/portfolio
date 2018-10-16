@@ -39,6 +39,7 @@
 							<li><a href="/">WEB</a></li>
 							<li><a href="/">BOOTSTRAP</a></li>
 							<li><a href="/">ANDROID</a></li>
+							<li><a href="/">MARIADB</a></li>
 							<li><a href="/">API</a></li>
 						</ul>
 					</li>
