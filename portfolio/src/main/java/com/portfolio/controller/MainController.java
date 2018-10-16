@@ -1,9 +1,13 @@
 package com.portfolio.controller;
 
+import java.io.InputStream;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -34,6 +38,38 @@ public class MainController {
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String info(Locale locale, Model model) throws Exception {
 		return "info";
+	}
+	
+	/* 사이트맵 제출을 위한 컨트롤러 */
+	@RequestMapping(value = "sitemap.xml", method = RequestMethod.GET)
+	public void robot(Model model, HttpServletResponse response, HttpServletRequest request) {
+	    InputStream resourceAsStream = null;
+	    try {
+	        ClassLoader classLoader = getClass().getClassLoader();
+	        resourceAsStream = classLoader.getResourceAsStream("sitemap.xml");
+	        response.addHeader("Content-disposition", "filename=sitemap.xml");
+	        response.setContentType("text/plain");
+	        IOUtils.copy(resourceAsStream, response.getOutputStream());
+	        response.flushBuffer();
+	    } catch (Exception e) {
+	    	System.out.println(e);
+	    } 
+	}
+	
+	/* robots.txt 설정 컨트롤러 */
+	@RequestMapping(value = {"/robots", "/robot", "/robot.txt", "/robots.txt"}, method = RequestMethod.GET)
+	public void sitemap(Model model, HttpServletResponse response, HttpServletRequest request) {
+	    InputStream resourceAsStream = null;
+	    try {
+	        ClassLoader classLoader = getClass().getClassLoader();
+	        resourceAsStream = classLoader.getResourceAsStream("robots.txt");
+	        response.addHeader("Content-disposition", "filename=robots.txt");
+	        response.setContentType("text/plain");
+	        IOUtils.copy(resourceAsStream, response.getOutputStream());
+	        response.flushBuffer();
+	    } catch (Exception e) {
+	    	System.out.println(e);
+	    } 
 	}
 	
 }
