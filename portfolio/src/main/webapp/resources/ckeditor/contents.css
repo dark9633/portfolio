@@ -1,6 +1,6 @@
 /*
 Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+For licensing, see LICENSE.md or https://ckeditor.com/legal/terms-of-use/#open-source-licences
 */
 
 body
@@ -205,4 +205,7 @@ a > img {
 	max-width: 1920px;
 	max-height: 1080px;
 	margin:0 auto;
+}
+p{
+	margin: 0px;
 }

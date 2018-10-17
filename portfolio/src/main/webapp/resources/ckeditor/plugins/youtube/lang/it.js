@@ -10,6 +10,7 @@ CKEDITOR.plugins.setLang('youtube', 'it', {
 	chkPrivacy : 'Abilita la protezione della privacy',
 	chkOlderCode : 'Usa il vecchio codice di incorporamento',
 	chkAutoplay : 'Autoplay',
+	chkControls : 'Mostra i controlli del player',
 	noCode : 'Devi inserire un codice di incorporamento o un URL',
 	invalidEmbed : 'Il codice di incorporamento inserito non sembra valido',
 	invalidUrl : 'L\'URL inserito non sembra valido',
@@ -18,5 +19,6 @@ CKEDITOR.plugins.setLang('youtube', 'it', {
 	invalidWidth : 'Indica una larghezza valida',
 	noHeight : 'Devi indicare l\'altezza',
 	invalidHeight : 'Indica un\'altezza valida',
-	invalidTime : 'Indica un tempo di inizio valido'
+	invalidTime : 'Indica un tempo di inizio valido',
+	txtResponsive : 'Responsive video'
 });

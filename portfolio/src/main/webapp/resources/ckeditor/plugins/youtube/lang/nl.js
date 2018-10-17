@@ -10,6 +10,7 @@ CKEDITOR.plugins.setLang('youtube', 'nl', {
 	chkPrivacy : 'Privacy-enhanced mode inschakelen',
 	chkOlderCode : 'Gebruik oude embedcode',
 	chkAutoplay: 'Automatisch starten',
+	chkControls: 'Afspeelbediening weergeven',
 	noCode : 'U moet een embedcode of url ingeven',
 	invalidEmbed : 'De ingegeven embedcode lijkt niet geldig',
 	invalidUrl : 'De ingegeven url lijkt niet geldig',
@@ -17,5 +18,8 @@ CKEDITOR.plugins.setLang('youtube', 'nl', {
 	noWidth : 'U moet een breedte ingeven',
 	invalidWidth : 'U moet een geldige breedte ingeven',
 	noHeight : 'U moet een hoogte ingeven',
-	invalidHeight : 'U moet een geldige starttijd ingeven'
+	invalidHeight : 'U moet een geldige starttijd ingeven',
+	invalidTime : 'Inform a valid start time',
+	txtResponsive : 'Responsive video',
+	txtNoEmbed : 'Alleen video afbeelding en link'
 });

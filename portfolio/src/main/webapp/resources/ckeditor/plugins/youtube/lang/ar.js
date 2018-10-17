@@ -10,6 +10,7 @@ CKEDITOR.plugins.setLang('youtube', 'ar', {
 	chkPrivacy : 'تفعيل وضع تحسين الخصوصية',
 	chkOlderCode : 'استخدم شيفرة التضمين القديمة',
 	chkAutoplay : 'Autoplay',
+	chkControls: 'إظهار عناصر التحكم بالمشغّل',
 	noCode : 'يجب عليك ادخال شيفرة التضمين او الرابط',
 	invalidEmbed : 'شيفرة التضمين التي قمت بإدخالها تبدو غير صحيحة',
 	invalidUrl : 'الرابط الذي قمت بإدخاله يبدو غير صحيح',
@@ -18,5 +19,6 @@ CKEDITOR.plugins.setLang('youtube', 'ar', {
 	invalidWidth : 'يجب عليك ادخال عرض صحيح',
 	noHeight : 'يجب عليك ادخال الطول',
 	invalidHeight : 'يجب عليك ادخال طول صحيح',
-	invalidTime : 'يجب عليك ادخال وقت بداية صحيح'
+	invalidTime : 'يجب عليك ادخال وقت بداية صحيح',
+	txtResponsive : 'Responsive video'
 });
