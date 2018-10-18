@@ -13,5 +13,8 @@ public interface MemberService {
 	
 	/* 회원 가입 */
 	public int MemberRegister(MemberVO vo) throws Exception;
+
+	/* 회원 로그인 */
+	public MemberVO MemberLogin(MemberVO vo) throws Exception;
 	
 }

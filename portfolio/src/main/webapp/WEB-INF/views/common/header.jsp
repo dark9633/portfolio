@@ -65,7 +65,7 @@
 					</c:if>
 					<c:if test="${ member != null }">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-							aria-haspopup="true" aria-expanded="false">${ member.memNickName } <span class="caret"></span></a>
+							aria-haspopup="true" aria-expanded="false">${ member.nickName } <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<!-- <li><a href="/category/list">마이페이지</a></li> -->
 								<li><a href="/logout">로그아웃</a></li>

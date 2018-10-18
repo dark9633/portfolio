@@ -32,4 +32,9 @@ public class MemberDAOImpl implements MemberDAO{
 		return session.insert(namespace + ".MemberRegister", vo);
 	}
 
+	@Override
+	public MemberVO MemberLogin(MemberVO vo) throws Exception {
+		return session.selectOne(namespace + ".MemberLogin", vo);
+	}
+
 }

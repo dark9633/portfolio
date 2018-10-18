@@ -20,4 +20,8 @@
 			(#{ nickName }, #{ email }, #{ pwd })
 	</insert>
 	
+	<select id="MemberLogin" resultType="MemberVO">
+		select memNumber, nickName, email, regDate from member where email = #{ email } and pwd = #{ pwd }
+	</select>
+	
 </mapper>

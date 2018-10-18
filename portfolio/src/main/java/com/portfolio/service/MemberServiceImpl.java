@@ -28,5 +28,10 @@ public class MemberServiceImpl implements MemberService{
 	public int MemberRegister(MemberVO vo) throws Exception {
 		return dao.MemberRegister(vo);
 	}
+
+	@Override
+	public MemberVO MemberLogin(MemberVO vo) throws Exception {
+		return dao.MemberLogin(vo);
+	}
 	
 }

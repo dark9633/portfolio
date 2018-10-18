@@ -54,6 +54,29 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	/* 회원 로그인 */
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(MemberVO vo, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
+		HttpSession session = request.getSession();
+		
+		vo.setPwd(new PasswordSecurity().encryptSHA256(vo.getPwd()));
+		
+		String referer = request.getHeader("referer");
+		if(referer == null || referer == ""){
+			referer = "/";
+		}
+		
+		MemberVO member = service.MemberLogin(vo);
+		if(member == null){ 
+			rttr.addFlashAttribute("succ", "fail");
+			return "redirect:/"; 
+		}
+		
+		session.setAttribute("member", member);
+		
+		return "redirect:"+referer;
+	}
+	
 	/* 
 	 * 메일 검증 컨트롤러 
 	 * 코드를 메일로 전송하고 session에 코드를 임시적으로 저장한다.
