@@ -17,4 +17,7 @@ public interface BoardService {
 	/* 게시글 총 수 */
 	public int BoardListCount(Criteria cri) throws Exception;
 	
+	/* 게시글 상세 */
+	public BoardVO BoardView(Integer bNumber) throws Exception;
+	
 }

@@ -59,7 +59,13 @@ public class BoardController {
 	
 	/* 게시판 상세 페이지 */
 	@RequestMapping(value = "/view/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public String view(@PathVariable("bNumber") Integer bNumber, Model model) throws Exception {
+	public String view(@PathVariable("bNumber") Integer bNumber, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("view", bService.BoardView(bNumber));
 		
 		return "board/board_view";
 	}

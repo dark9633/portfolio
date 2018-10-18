@@ -31,5 +31,10 @@ public class BoardServiceImpl implements BoardService{
 	public int BoardListCount(Criteria cri) throws Exception {
 		return dao.BoardListCount(cri);
 	}
+
+	@Override
+	public BoardVO BoardView(Integer bNumber) throws Exception {
+		return dao.BoardView(bNumber);
+	}
 	
 }

@@ -28,71 +28,75 @@
 
 	<div class="container">
 		
-			
 		<!-- table line start -->
 		<div class="row">
 		
 			<!-- list mobile line -->
 			<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-				<table class="table">
-					<tbody class="list">
-					
-						<c:forEach items="${ board }" var="board">
-							<tr>
-								<td>
-								
-									<a href="/board/view/${ board.bNumber }${pageMaker.makeQuery(pageMaker.cri.page)}">
-										<div>
-											${ board.title }
-										</div>
-										<div style="font-size: 10px;">
-											${ board.nickName } | 
-											<fmt:formatDate pattern="MM-dd" value="${ board.regDate }"/> | 
-											조회 : ${board.viewCount } | 
-											댓글 : ${board.reCount }
-										</div>
-									</a>
+				
+				<div class="col-sm-1 col-md-1 col-lg-1"></div>
+				<div class="col-sm-10 col-md-10 col-lg-10">
+					<table class="table">
+						<tbody class="list">
+						
+							<c:forEach items="${ board }" var="board">
+								<tr>
+									<td>
 									
+										<a href="/board/view/${ board.bNumber }${pageMaker.makeQuery(pageMaker.cri.page)}">
+											<div>
+												${ board.title }
+											</div>
+											<div style="font-size: 10px;">
+												${ board.nickName } | 
+												<fmt:formatDate pattern="MM-dd" value="${ board.regDate }"/> | 
+												조회 : ${board.viewCount } | 
+												댓글 : ${board.reCount }
+											</div>
+										</a>
+										
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+						
+						<!-- list pagenation line -->
+						<tbody class="page">
+							<tr>
+								<td colspan="5" style="text-align: center;">
+									<ul class="pagination">
+										<c:if test="${ pageMaker.prev }">
+											<li>
+												<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
+											</li>
+										</c:if>
+										
+										<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
+											 <c:if test="${ pageMaker.cri.page == idx }">
+											 	<li class="active">
+											 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+											 	</li>
+											 </c:if>
+											 <c:if test="${ pageMaker.cri.page != idx }">
+											 	<li>
+											 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+											 	</li>
+											 </c:if>
+										</c:forEach>
+										
+										<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
+											<li>
+												<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
+											</li>
+										</c:if>
+										
+									</ul>
 								</td>
 							</tr>
-						</c:forEach>
-					</tbody>
-					
-					<!-- list pagenation line -->
-					<tbody class="page">
-						<tr>
-							<td colspan="5" style="text-align: center;">
-								<ul class="pagination">
-									<c:if test="${ pageMaker.prev }">
-										<li>
-											<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
-										</li>
-									</c:if>
-									
-									<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
-										 <c:if test="${ pageMaker.cri.page == idx }">
-										 	<li class="active">
-										 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-										 	</li>
-										 </c:if>
-										 <c:if test="${ pageMaker.cri.page != idx }">
-										 	<li>
-										 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-										 	</li>
-										 </c:if>
-									</c:forEach>
-									
-									<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
-										<li>
-											<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
-										</li>
-									</c:if>
-									
-								</ul>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-sm-1 col-md-1 col-lg-1"></div>
 			</div>
 			<!-- list mobile line -->
 		

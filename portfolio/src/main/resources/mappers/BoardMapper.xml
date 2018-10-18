@@ -21,9 +21,11 @@
 	</select>
 	
 	<select id="BoardListCount" resultType="int">
-		select count(*) from board
-		where 
-			category = #{ category }
+		select count(*) from board where category = #{ category }
+	</select>
+	
+	<select id="BoardView" resultType="BoardVO">
+		select * from board where bNumber = #{ bNumber }
 	</select>
 	
 </mapper>

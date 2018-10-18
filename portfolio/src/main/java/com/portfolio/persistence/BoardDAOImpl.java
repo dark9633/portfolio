@@ -35,4 +35,9 @@ public class BoardDAOImpl implements BoardDAO{
 		return session.selectOne(namespace + ".BoardListCount", cri);
 	}
 
+	@Override
+	public BoardVO BoardView(Integer bNumber) throws Exception {
+		return session.selectOne(namespace + ".BoardView", bNumber);
+	}
+
 }
