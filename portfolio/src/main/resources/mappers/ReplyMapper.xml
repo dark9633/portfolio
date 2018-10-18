@@ -6,7 +6,7 @@
 <mapper namespace="com.portfolio.mapper.ReplyMapper">
 
 	<select id="ReplyList" resultType="ReplyVO">
-		SELECT * FROM reply
+		SELECT * FROM reply where bNumber = #{ bNumber }
 	</select>
 	
 	<insert id="ReplyRegister">
