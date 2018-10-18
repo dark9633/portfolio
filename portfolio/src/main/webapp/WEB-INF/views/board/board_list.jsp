@@ -27,10 +27,8 @@
 	<jsp:include page="../common/header.jsp" />
 
 	<div class="container">
-		
 		<div class="row">
-			<div class="col-sm-1 col-md-1 col-lg-1"></div>
-			<div class="col-sm-10 col-md-10 col-lg-10">
+			<div class="col-sm-12 col-md-12 col-lg-12">
 				<form class="navbar-form navbar-right hidden-xs">
 					<div class="form-group">
 						<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
@@ -38,7 +36,6 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-sm-1 col-md-1 col-lg-1"></div>
 		</div>
 		<!-- table line start -->
 		<div class="row">
@@ -46,8 +43,7 @@
 			<!-- list mobile line -->
 			<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
 				
-				<div class="col-sm-1 col-md-1 col-lg-1"></div>
-				<div class="col-sm-10 col-md-10 col-lg-10">
+				<div class="col-sm-12 col-md-12 col-lg-12">
 					<table class="table">
 						<tbody class="list">
 						
@@ -108,16 +104,13 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="col-sm-1 col-md-1 col-lg-1"></div>
 			</div>
 			<!-- list mobile line -->
 		
 			<!-- list pc and tablet line -->
 			<div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
 				<div class="row">
-					<div class="col-sm-1 col-md-1 col-lg-1"></div>
-					
-					<div class="col-sm-10 col-md-10 col-lg-10">
+					<div class="col-sm-12 col-md-12 col-lg-12">
 						<table class="table">
 							<!-- main list header line -->
 							<thead class="head">
@@ -198,8 +191,6 @@
 							</tbody>
 						</table>
 					</div>
-					
-					<div class="col-sm-1 col-md-1 col-lg-1"></div>
 				</div>
 			</div>
 			<!-- list pc and tablet line -->
