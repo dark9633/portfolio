@@ -5,4 +5,8 @@
 
 <mapper namespace="com.portfolio.mapper.ReplyMapper">
 
+	<select id="ReplyList" resultType="ReplyVO">
+		SELECT * FROM reply
+	</select>
+	
 </mapper>

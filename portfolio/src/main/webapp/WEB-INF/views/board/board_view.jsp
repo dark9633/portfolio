@@ -119,6 +119,31 @@
 					
 				</div>
 				
+				<div class="row">
+					<div class="col-lg-12">
+						<h2 class="page-header">댓글</h2>
+						<section class="comment-list" id="replyList"></section>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-12">
+						<form method="post" onsubmit="return false;">
+							<div class="row">
+								<!-- 임시적으로 모두 허용 -->
+								<div class="col-lg-10 form-group">
+									<textarea class="form-control" name="content" id="content" rows="5"></textarea>
+								</div>
+								<div class="col-lg-2 form-group">
+									<input type="hidden" id="bNumber" name="bNumber" value="${ view.bNumber }">
+									<input type="hidden" id="nickName" name="nickName" value="김남">
+									<input type="submit" id="replyBtn" class="btn btn-default" value="등록">
+								</div>
+							
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 			
@@ -127,6 +152,9 @@
 	</div>
 	
 	<script type="text/javascript">
+		var bNumber = ${ bNumber };
+	
+		//게시물 삭제 메소드
 		$(document).on("click", "#deleteBtn", function(e){
 			e.preventDefault();
 			var c = confirm("정말로 삭제하시겠습니까?" + $("#deleteBtn").attr("href"));
@@ -134,6 +162,85 @@
 				location.href = $("#deleteBtn").attr("href");
 			}
 		});
+		
+		//시작 실행 메소드
+		$(document).ready(function(){
+			getReply(5);
+		});
+		
+		//댓글 리스트 ajax 통신후 html 생성
+		function getReply(limit){
+			$.getJSON("/reply/list/"+bNumber, function(data){
+				var html = "";
+
+				$.each(data, function(index, entry){
+					
+					if(index < limit){
+						html += "<article class='row'>";
+						
+						html += "<div class='col-md-2 col-sm-2 hidden-xs'>";
+						html += "<figure class='thumbnail'>";
+						html += "<img class='img-responsive img-circle img-thumbnail' width = '70px;' height='70px;' src='/resources/img/none-image.jpg'/>";
+						
+						html += "<figcaption class='text-center'>";
+						html += "<div class='dropdown'>";
+						html += "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>"+entry.nickName+"</a>";
+						html += "<ul class='dropdown-menu'>";
+						html += "<li><a href='#' data='"+entry.nickName+"' class='mCommunity'>게시글</a></li>";
+						html += "<li><a href='#' data='"+entry.nickName+"' class='mReply'>댓글</a></li>";
+						html += "</ul>";
+						html += "</div>";
+						html += "</figcaption>";
+						
+						html += "</figure>";
+						html += "</div>"; 
+						
+						html += "<div class='col-md-10 col-sm-10'>";
+						html += "<div class='panel panel-default arrow left'>";			//right : left
+						html += "<div class='panel-body'>";
+						html += "<header class='text-left'>";							//right : left
+						
+						html += "<div class='row'>";
+						html += "<div class='col-md-12'>";
+						html += "<p class='text-right'>";
+						
+						html += javaDateFormat(entry.regDate);
+						
+						html += "</p></div></div></header>";
+						html += "<div class='comment-post'>";
+						html += "<p class='content_"+entry.reNumber+"'>";
+						
+						html += entry.content;
+						
+						html += "</p>";
+						html += "</div>";
+						html += "<p class='text-right'>";
+						// 임시적으로 모두 허용
+						html += "<a href='#' class='btn btn-default btn-sm replyMod' data-toggle='modal' data-target='#reply-mod-modal' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 수정</a>";
+						html += "<a href='#' class='btn btn-default btn-sm replyDel' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 삭제</a>";
+						
+						html += "</p></div></div></div>";
+						
+						html += "</article>";
+					}
+				});
+				
+				if(data.length > limit){
+					html += "<input type='button' id='more' data='"+limit+"' class='form-control' value='더보기 (+"+Number(data.length-limit)+")'><br>";
+				}
+				
+				$('#replyList').empty();
+				$('#replyList').append(html);
+			});
+		}
+		
+		$(document).on("click", "#more", function(e){
+			e.preventDefault();
+			var limit = $(this).attr("data");
+			limit = Number(limit) + 5;
+			getReply(limit);
+		});
+		
 	</script>
 
 	<jsp:include page="../common/footer.jsp" />
