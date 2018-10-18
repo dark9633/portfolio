@@ -20,5 +20,10 @@ public class ReplyServiceImpl implements ReplyService{
 	public List<ReplyVO> ReplyList(Integer bNumber) throws Exception {
 		return dao.ReplyList(bNumber);
 	}
+
+	@Override
+	public int ReplyRegister(ReplyVO vo) throws Exception {
+		return dao.ReplyRegister(vo);
+	}
 	
 }

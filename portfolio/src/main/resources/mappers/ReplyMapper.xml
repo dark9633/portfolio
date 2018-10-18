@@ -9,4 +9,11 @@
 		SELECT * FROM reply
 	</select>
 	
+	<insert id="ReplyRegister">
+		INSERT INTO reply
+			(bNumber, nickName, content)
+		VALUES 
+			(#{ bNumber }, #{ nickName }, #{ content })
+	</insert>
+	
 </mapper>

@@ -135,8 +135,6 @@
 									<textarea class="form-control" name="content" id="content" rows="5"></textarea>
 								</div>
 								<div class="col-lg-2 form-group">
-									<input type="hidden" id="bNumber" name="bNumber" value="${ view.bNumber }">
-									<input type="hidden" id="nickName" name="nickName" value="김남">
 									<input type="submit" id="replyBtn" class="btn btn-default" value="등록">
 								</div>
 							
@@ -153,6 +151,7 @@
 	
 	<script type="text/javascript">
 		var bNumber = ${ bNumber };
+		var nickName = "김남";	//회원 생성전까지 임시적으로 사용
 	
 		//게시물 삭제 메소드
 		$(document).on("click", "#deleteBtn", function(e){
@@ -234,11 +233,41 @@
 			});
 		}
 		
+		//댓글 리스트 더보기 페이징처리
 		$(document).on("click", "#more", function(e){
 			e.preventDefault();
 			var limit = $(this).attr("data");
 			limit = Number(limit) + 5;
 			getReply(limit);
+		});
+		
+		//댓글 등록
+		$(document).on("click", "#replyBtn", function(e){
+			
+			var content = $("#content").val();
+			
+			$.ajax({
+				type : 'post',
+				url : '/reply',
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				data : JSON.stringify({
+					bNumber : bNumber,
+					nickName : nickName,
+					content : content
+				}),
+				success : function(result){
+					if(result == "succ"){
+						$('#content').val("");
+						getReply(5);
+					}else{
+						alert("댓글 등록에 실패했습니다.");
+					}
+				}
+			});
 		});
 		
 	</script>

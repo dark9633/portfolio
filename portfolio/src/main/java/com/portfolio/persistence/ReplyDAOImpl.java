@@ -24,4 +24,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return session.selectList(namespace + ".ReplyList", bNumber);
 	}
 
+	@Override
+	public int ReplyRegister(ReplyVO vo) throws Exception {
+		return session.insert(namespace + ".ReplyRegister", vo);
+	}
+
 }
