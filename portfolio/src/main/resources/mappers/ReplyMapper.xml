@@ -20,4 +20,13 @@
 		DELETE FROM reply WHERE reNumber=#{ reNumber }
 	</delete>
 	
+	<update id="ReplyUpdate">
+		UPDATE reply
+		SET
+			content=#{content},
+			regDate=NOW()
+		WHERE 
+			reNumber = #{ reNumber }
+	</update>
+	
 </mapper>

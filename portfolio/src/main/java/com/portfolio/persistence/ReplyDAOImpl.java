@@ -34,4 +34,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return session.delete(namespace + ".ReplyDelete", reNumber);
 	}
 
+	@Override
+	public int ReplyUpdate(ReplyVO vo) throws Exception {
+		return session.update(namespace + ".ReplyUpdate", vo);
+	}
+
 }

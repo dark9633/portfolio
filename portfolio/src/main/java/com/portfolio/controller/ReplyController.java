@@ -78,4 +78,23 @@ public class ReplyController {
 		return entity;
 	}
 	
+	/* 댓글 수정*/
+	@RequestMapping(value = "", method = {RequestMethod.PUT, RequestMethod.PATCH})
+	public ResponseEntity<String> update(@RequestBody ReplyVO vo){
+		ResponseEntity<String> entity = null;
+		
+		try {
+			int succ = service.ReplyUpdate(vo);
+			if(succ > 0){
+				entity = new ResponseEntity<String>("succ", HttpStatus.OK);
+			}else{
+				entity = new ResponseEntity<String>("fail", HttpStatus.OK);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
 }

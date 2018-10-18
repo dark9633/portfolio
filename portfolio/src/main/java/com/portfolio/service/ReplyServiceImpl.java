@@ -30,5 +30,10 @@ public class ReplyServiceImpl implements ReplyService{
 	public int ReplyDelete(Integer reNumber) throws Exception {
 		return dao.ReplyDelete(reNumber);
 	}
+
+	@Override
+	public int ReplyUpdate(ReplyVO vo) throws Exception {
+		return dao.ReplyUpdate(vo);
+	}
 	
 }

@@ -16,4 +16,7 @@ public interface ReplyDAO {
 	/* 댓글 삭제 */
 	public int ReplyDelete(Integer reNumber) throws Exception;
 	
+	/* 댓글 수정 */
+	public int ReplyUpdate(ReplyVO vo) throws Exception;
+	
 }

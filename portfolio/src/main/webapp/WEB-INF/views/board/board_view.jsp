@@ -149,6 +149,29 @@
 		
 	</div>
 	
+	<!-- modify Modal line -->
+	<div class="modal fade" id="reply-mod-modal" role="dialog" style="padding-top: 100px;">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">댓글 수정</h4>
+				</div>
+				<div class="modal-body">
+					<div style="border: 1px solid #e5e5e5;">
+						<input type="hidden" id="mod_reNumber" value="">
+						<textarea class="form-control" id="mod_content" rows="6"></textarea>	
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="replyMod" data-dismiss="modal">수정</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modify Modal line -->
+	
 	<script type="text/javascript">
 		var bNumber = ${ bNumber };
 		var nickName = "김남";	//회원 생성전까지 임시적으로 사용
@@ -297,6 +320,45 @@
 				});
 			}
 		});
+		
+		//댓글 수정 정보
+		$(document).on("click", ".replyMod", function(e){
+			e.preventDefault();
+			var reNumber = $(this).attr("data");
+			var content = $(".content_"+reNumber).html();
+			
+			$("#mod_reNumber").val(reNumber);
+			$("#mod_content").val(content);
+			
+			$("#reply-mod-modal").modal("show");
+		});
+		
+		//댓글 수정
+		$(document).on("click", "#replyMod", function(){
+		var reNumber = $("#mod_reNumber").val();
+		var content = $("#mod_content").val();
+		
+		$.ajax({
+			type : 'put',
+			url : '/reply',
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "PUT"
+			},
+			data : JSON.stringify({content:content, reNumber:reNumber}),
+			dataType : 'text',
+			success : function(result){
+				if(result == "succ"){
+					getReply(5);
+				}else{
+					alert("댓글 수정에 실패했습니다.");
+				}
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
+	});
 		
 	</script>
 
