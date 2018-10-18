@@ -25,7 +25,7 @@
 		.cke_button__superbutton_icon { background-position: 0 -360px !important; }
 	</style>
 	
-	<title>웹 개발자 포트폴리오 | 게시글 등록</title>
+	<title>웹 개발자 포트폴리오 | 게시글 수정</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
@@ -36,22 +36,23 @@
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 	
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-				<form action="/board/register" id="form" method="post">
+				<form action="/board/modify" id="form" method="post">
 	
 					<div class="form-group">
-						<input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요" maxlength="50">
+						<input type="text" id="title" name="title" value="${ view.title }" class="form-control" placeholder="제목을 입력하세요" maxlength="50">
 					</div>
 					<div class="form-group text-right">
-						<textarea id="editor" name="content"></textarea>
+						<textarea id="editor" name="content">${ view.content }</textarea>
 					</div>
 					
 					<div class="form-group row">
 						<div class="col-xs-12 text-right">
 							<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
-							<input type="hidden" id="nickName" name="nickName" value="김남">
+							<input type="hidden" id="bNumber" name="bNumber" value="${ view.bNumber }">
+							<input type="hidden" id="nickName" name="nickName" value="${ view.nickName }">
 							<input type="hidden" id="category" name="category" value="${ cri.category }">
 							<input type="file" id="file" style="display: none;" multiple="multiple">
-							<input type="submit" id="submitBtn" class="btn btn-default" value="등록">
+							<input type="submit" id="submitBtn" class="btn btn-default" value="수정">
 							<input type="button" id="cancelBtn" class="btn btn-default" value="취소">
 						</div>
 					</div>

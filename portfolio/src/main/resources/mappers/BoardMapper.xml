@@ -28,4 +28,14 @@
 		select * from board where bNumber = #{ bNumber }
 	</select>
 	
+	<update id="BoardModify">
+		UPDATE board
+		SET
+			title=#{ title },
+			content=#{ content },
+			regDate=NOW()
+		WHERE 
+			bNumber=#{ bNumber }
+	</update>
+	
 </mapper>

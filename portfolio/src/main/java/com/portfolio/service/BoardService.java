@@ -20,4 +20,7 @@ public interface BoardService {
 	/* 게시글 상세 */
 	public BoardVO BoardView(Integer bNumber) throws Exception;
 	
+	/* 게시글 수정 */
+	public int BoardModify(BoardVO vo) throws Exception;
+	
 }

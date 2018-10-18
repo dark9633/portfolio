@@ -36,5 +36,10 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO BoardView(Integer bNumber) throws Exception {
 		return dao.BoardView(bNumber);
 	}
+
+	@Override
+	public int BoardModify(BoardVO vo) throws Exception {
+		return dao.BoardModify(vo);
+	}
 	
 }

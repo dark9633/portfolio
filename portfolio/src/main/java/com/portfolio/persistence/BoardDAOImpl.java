@@ -40,4 +40,9 @@ public class BoardDAOImpl implements BoardDAO{
 		return session.selectOne(namespace + ".BoardView", bNumber);
 	}
 
+	@Override
+	public int BoardModify(BoardVO vo) throws Exception {
+		return session.update(namespace + ".BoardModify", vo);
+	}
+
 }

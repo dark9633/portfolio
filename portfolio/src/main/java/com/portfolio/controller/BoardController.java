@@ -70,7 +70,7 @@ public class BoardController {
 		return "board/board_view";
 	}
 	
-	/* 게시판 등록 페이지 */
+	/* 게시글 등록 페이지 */
 	@RequestMapping(value = "/register/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String register(@PathVariable("category") String category, Model model) throws Exception {
 		Criteria cri = new Criteria();
@@ -79,7 +79,7 @@ public class BoardController {
 		return "board/board_register";
 	}
 	
-	/* 게시판 등록 */
+	/* 게시글 등록 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPost(BoardVO vo, HttpServletRequest request, RedirectAttributes attr, Model model) throws Exception {
 		request.getSession().removeAttribute("img");
@@ -90,6 +90,31 @@ public class BoardController {
 			attr.addFlashAttribute("result", "fail");
 		}
 		return "redirect:/board/list/" + URLEncoder.encode(vo.getCategory(), "UTF-8");
+	}
+	
+	/* 게시글 수정 페이지 */
+	@RequestMapping(value = "/modify/{category}/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
+	public String modify(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, Model model) throws Exception {
+		Criteria cri = new Criteria();
+		cri.setCategory(category);
+		
+		model.addAttribute("cri", cri);
+		model.addAttribute("view", bService.BoardView(bNumber));
+		
+		return "board/board_modify";
+	}
+	
+	/* 게시글 수정 */
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPost(BoardVO vo, HttpServletRequest request, RedirectAttributes attr, Model model) throws Exception {
+		request.getSession().removeAttribute("img");
+		int succ = bService.BoardModify(vo);
+		if(succ > 0){
+			attr.addFlashAttribute("result", "succ");
+		}else{
+			attr.addFlashAttribute("result", "fail");
+		}
+		return "redirect:/board/view/" + vo.getbNumber();
 	}
 	
 	/*

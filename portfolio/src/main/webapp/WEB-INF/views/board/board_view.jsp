@@ -62,7 +62,7 @@
 		}
 	</style>
 	
-	<title>웹 개발자 포트폴리오 | 게시판 상세</title>
+	<title>웹 개발자 포트폴리오 | 게시글 상세</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
@@ -104,6 +104,19 @@
 					<div class="mainContent">
 						 ${ view.content }
 					</div>
+					
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 text-right">
+							<br>
+							<!-- 임시적으로 모두 허용 -->
+							<a href="/board/modify/${ cri.category }/${ view.bNumber }" class="btn btn-default btn-lg">수정</a>
+							<a href="#" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
+							<a href="/board/list/${ cri.category }" class="btn btn-default btn-lg">목록보기</a>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+					
 				</div>
 				
 			</div>
