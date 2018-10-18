@@ -110,9 +110,9 @@
 						<div class="col-md-10 text-right">
 							<br>
 							<!-- 임시적으로 모두 허용 -->
-							<a href="/board/modify/${ cri.category }/${ view.bNumber }" class="btn btn-default btn-lg">수정</a>
-							<a href="#" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
-							<a href="/board/list/${ cri.category }" class="btn btn-default btn-lg">목록보기</a>
+							<a href="/board/modify/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg">수정</a>
+							<a href="/board/delete/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
+							<a href="/board/list/${ view.category }" class="btn btn-default btn-lg">목록보기</a>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
@@ -125,7 +125,18 @@
 		</div>
 		
 	</div>
+	
+	<script type="text/javascript">
+		$(document).on("click", "#deleteBtn", function(e){
+			e.preventDefault();
+			var c = confirm("정말로 삭제하시겠습니까?" + $("#deleteBtn").attr("href"));
+			if(c){
+				location.href = $("#deleteBtn").attr("href");
+			}
+		});
+	</script>
 
 	<jsp:include page="../common/footer.jsp" />
+	
 </body>
 </html>

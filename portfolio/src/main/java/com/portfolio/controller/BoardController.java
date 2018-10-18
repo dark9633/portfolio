@@ -60,13 +60,7 @@ public class BoardController {
 	/* 게시판 상세 페이지 */
 	@RequestMapping(value = "/view/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String view(@PathVariable("bNumber") Integer bNumber, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		
-		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("view", bService.BoardView(bNumber));
-		
 		return "board/board_view";
 	}
 	
@@ -115,6 +109,18 @@ public class BoardController {
 			attr.addFlashAttribute("result", "fail");
 		}
 		return "redirect:/board/view/" + vo.getbNumber();
+	}
+	
+	/* 게시글 삭제 */
+	@RequestMapping(value = "/delete/{category}/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
+	public String delete(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, RedirectAttributes attr, Model model) throws Exception {
+		int succ = bService.BoardDelete(bNumber);
+		if(succ > 0){
+			attr.addFlashAttribute("result", "succ");
+		}else{
+			attr.addFlashAttribute("result", "fail");
+		}
+		return "redirect:/board/list/" + URLEncoder.encode(category, "UTF-8");
 	}
 	
 	/*

@@ -41,5 +41,10 @@ public class BoardServiceImpl implements BoardService{
 	public int BoardModify(BoardVO vo) throws Exception {
 		return dao.BoardModify(vo);
 	}
+
+	@Override
+	public int BoardDelete(Integer bNumber) throws Exception {
+		return dao.BoardDelete(bNumber);
+	}
 	
 }

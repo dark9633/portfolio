@@ -38,4 +38,8 @@
 			bNumber=#{ bNumber }
 	</update>
 	
+	<update id="BoardDelete">
+		DELETE FROM board WHERE bNumber=#{ bNumber }
+	</update>
+	
 </mapper>
