@@ -172,7 +172,7 @@
 				<hr>
 
 				<!-- Date/Time -->
-				<p>Last Updated 2018-10-17</p>
+				<p>Last Updated 2018-10-18</p>
 
 				<hr>
 
@@ -184,6 +184,33 @@
 				<!-- Post Content -->
 				<p class="lead text-right">1987/01/23 남성</p>
 
+
+				<p class="lead">포트폴리오...</p>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								임시 포트폴리오 FREEMOA<br>
+								<a href="http://www.freemoa.net/m7/freelance_detail?fno=29922" target="_blank">PORTFOLIO</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								포트폴리오 프로젝트 GITHUB<br>
+								<a href="https://github.com/dark9633/portfolio" target="_blank">GITHUB</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="row"><div class="col-lg-12"><hr></div></div>
+				
 				<p class="lead">개발에대해...</p>
 				
 				<div class="col-lg-12">
@@ -200,7 +227,7 @@
 						</li>
 						<li>
 							<p>
-								풀스택 개발자를 목표로 기획부터 서버구축과 서비스 및 유지보수까지 실무를 경험했다(본인 사업장이지만...)
+								풀스택 개발자를 목표로 기획부터 서버구축과 서비스 및 유지보수까지 실무를 경험했다(본인 사업장에서지만...)
 							</p>
 						</li>
 						<li>
@@ -245,18 +272,6 @@
 							<p>
 								서버구축 > 웹개발(Pc + Mobile) > 모바일 앱(Android + IOS) 개발 까지 (디자인은 bootstrap으로..) 모두 가능한 개발자가 되기 위해
 								IOS 어플리케이션 개발 공부중입니다.
-							</p>
-						</li>
-						<li>
-							<p>
-								임시적으로 사용하고 있는 포트폴리오<br>
-								<a href="http://www.freemoa.net/m7/freelance_detail?fno=29922" target="_blank">프리모아 포트폴리오</a>
-							</p>
-						</li>
-						<li>
-							<p>
-								포트폴리오 프로젝트는 깃허브에서 공개형으로 진행중<br>
-								<a href="https://github.com/dark9633/portfolio" target="_blank">GITHUB</a>
 							</p>
 						</li>
 					</ul>

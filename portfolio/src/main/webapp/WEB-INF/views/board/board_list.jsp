@@ -28,6 +28,18 @@
 
 	<div class="container">
 		
+		<div class="row">
+			<div class="col-sm-1 col-md-1 col-lg-1"></div>
+			<div class="col-sm-10 col-md-10 col-lg-10">
+				<form class="navbar-form navbar-right hidden-xs">
+					<div class="form-group">
+						<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
+						<a href="/board/register/${pageMaker.cri.category}" class="btn btn-default search-bth">글쓰기</a>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-1 col-md-1 col-lg-1"></div>
+		</div>
 		<!-- table line start -->
 		<div class="row">
 		
