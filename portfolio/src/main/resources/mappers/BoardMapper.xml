@@ -5,4 +5,11 @@
 
 <mapper namespace="com.portfolio.mapper.BoardMapper">
 
+	<insert id="BoardRegister">
+		INSERT INTO board
+			(nickName, category, title, content)
+		VALUES 
+			(#{ nickName }, #{ category }, #{ title }, #{ content })
+	</insert>
+	
 </mapper>

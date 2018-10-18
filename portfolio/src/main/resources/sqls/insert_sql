@@ -1,0 +1,1 @@
+INSERT INTO member (nickName, email, pwd) VALUES ('김남', 'test@email.com', 'test')
