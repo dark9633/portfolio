@@ -12,4 +12,18 @@
 			(#{ nickName }, #{ category }, #{ title }, #{ content })
 	</insert>
 	
+	<select id="BoardList" resultType="BoardVO">
+		select * from board
+		where 
+			category = #{ category }
+		order by bNumber desc
+		limit #{ pageStart}, #{ perPageNum }
+	</select>
+	
+	<select id="BoardListCount" resultType="int">
+		select count(*) from board
+		where 
+			category = #{ category }
+	</select>
+	
 </mapper>

@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.portfolio.domain.BoardVO;
 import com.portfolio.domain.Criteria;
+import com.portfolio.domain.PageMaker;
 import com.portfolio.service.BoardService;
 import com.portfolio.utils.UploadFileUtils;
 
@@ -42,7 +44,15 @@ public class BoardController {
 	
 	/* 게시판 리스트 페이지 */
 	@RequestMapping(value = "/list/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public String list(@PathVariable("category") String category, Model model) throws Exception {
+	public String list(@PathVariable("category") String category, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+		cri.setCategory(category);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(bService.BoardListCount(cri));
+		
+		model.addAttribute("board", bService.BoardList(cri));
+		model.addAttribute("pageMaker", pageMaker);
 		
 		return "board/board_list";
 	}
