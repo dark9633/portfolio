@@ -270,6 +270,34 @@
 			});
 		});
 		
+		//댓글삭제
+		$(document).on("click", ".replyDel", function(e){
+			e.preventDefault();
+			var reNumber = $(this).attr("data");
+			var c = confirm("정말로 삭제하시겠습니까?");
+			if(c){
+				$.ajax({
+					type : 'delete',
+					url : '/reply/'+reNumber,
+					headers : {
+						"Content-Type" : "application/json",
+						"X-HTTP-Method-Override" : "DELETE"
+					},
+					dataType : 'text',
+					success : function(result){
+						if(result == "succ"){
+							getReply(5);
+						}else{
+							alert("댓글 삭제에 실패했습니다.");
+						}
+					},
+					error : function(e){
+						console.log(e);
+					}
+				});
+			}
+		});
+		
 	</script>
 
 	<jsp:include page="../common/footer.jsp" />

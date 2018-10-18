@@ -16,4 +16,8 @@
 			(#{ bNumber }, #{ nickName }, #{ content })
 	</insert>
 	
+	<delete id="ReplyDelete">
+		DELETE FROM reply WHERE reNumber=#{ reNumber }
+	</delete>
+	
 </mapper>

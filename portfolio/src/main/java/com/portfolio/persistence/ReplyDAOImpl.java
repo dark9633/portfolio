@@ -29,4 +29,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return session.insert(namespace + ".ReplyRegister", vo);
 	}
 
+	@Override
+	public int ReplyDelete(Integer reNumber) throws Exception {
+		return session.delete(namespace + ".ReplyDelete", reNumber);
+	}
+
 }

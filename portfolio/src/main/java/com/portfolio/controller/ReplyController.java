@@ -40,12 +40,32 @@ public class ReplyController {
 		return entity;
 	}
 	
+	/* 댓글 등록 */
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<String> register(@RequestBody ReplyVO vo){
 		ResponseEntity<String> entity = null;
 		
 		try {
 			int succ = service.ReplyRegister(vo);
+			if(succ > 0){
+				entity = new ResponseEntity<String>("succ", HttpStatus.OK);
+			}else{
+				entity = new ResponseEntity<String>("fail", HttpStatus.OK);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	/* 댓글 삭제 */
+	@RequestMapping(value = "/{reNumber}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> delete(@PathVariable("reNumber") Integer reNumber){
+		ResponseEntity<String> entity = null;
+		
+		try {
+			int succ = service.ReplyDelete(reNumber);
 			if(succ > 0){
 				entity = new ResponseEntity<String>("succ", HttpStatus.OK);
 			}else{

@@ -13,4 +13,7 @@ public interface ReplyService {
 	/* 댓글 등록 */
 	public int ReplyRegister(ReplyVO vo) throws Exception;
 	
+	/* 댓글 삭제 */
+	public int ReplyDelete(Integer reNumber) throws Exception;
+	
 }
