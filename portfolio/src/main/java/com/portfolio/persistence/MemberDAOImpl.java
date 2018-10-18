@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.portfolio.domain.MemberVO;
+
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -14,5 +16,20 @@ public class MemberDAOImpl implements MemberDAO{
 	private SqlSession session;
 	
 	private static String namespace = "com.portfolio.mapper.MemberMapper";
+
+	@Override
+	public int MemberEmailExistCheck(MemberVO vo) throws Exception {
+		return session.selectOne(namespace + ".MemberEmailExistCheck", vo);
+	}
+
+	@Override
+	public int MemberNickNameExistCheck(MemberVO vo) throws Exception {
+		return session.selectOne(namespace + ".MemberNickNameExistCheck", vo);
+	}
+
+	@Override
+	public int MemberRegister(MemberVO vo) throws Exception {
+		return session.insert(namespace + ".MemberRegister", vo);
+	}
 
 }

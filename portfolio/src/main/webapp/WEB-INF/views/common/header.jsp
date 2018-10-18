@@ -60,14 +60,14 @@
 							aria-haspopup="true" aria-expanded="false">로그인 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></li>
-								<!-- <li><a href="/member/register">회원가입</a></li> -->
+								<li><a href="/member/register">회원가입</a></li>
 							</ul>
 					</c:if>
 					<c:if test="${ member != null }">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
 							aria-haspopup="true" aria-expanded="false">${ member.memNickName } <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/category/list">마이페이지</a></li>
+								<!-- <li><a href="/category/list">마이페이지</a></li> -->
 								<li><a href="/logout">로그아웃</a></li>
 							</ul>
 					</c:if>
@@ -86,13 +86,13 @@
 					<h4 class="modal-title">로그인</h4>
 				</div>
 				<div class="modal-body">
-					<form action="/login" method="post" role="form" id="login-form">
+					<form action="/member/login" method="post" role="form" id="login-form">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="id" id="id" type="text">
+								<input class="form-control" placeholder="E-mail" name="email" id="login_email" type="text">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="pw" id="pw" type="password">
+								<input class="form-control" placeholder="Password" name="pwd" id="login_pwd" type="password">
 							</div>
 							<div class="checkbox">
 								<label> 

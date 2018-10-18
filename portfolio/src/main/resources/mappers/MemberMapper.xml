@@ -5,4 +5,19 @@
 
 <mapper namespace="com.portfolio.mapper.MemberMapper">
 
+	<select id="MemberEmailExistCheck" resultType="int">
+		SELECT count(*) FROM member where email = #{ email }
+	</select>
+	
+	<select id="MemberNickNameExistCheck" resultType="int">
+		SELECT count(*) FROM member where nickName = #{ nickName }
+	</select>
+	
+	<insert id="MemberRegister">
+		INSERT INTO member
+			(nickName, email, pwd)
+		VALUES 
+			(#{ nickName }, #{ email }, #{ pwd })
+	</insert>
+	
 </mapper>
