@@ -77,6 +77,15 @@ public class MemberController {
 		return "redirect:"+referer;
 	}
 	
+	/* 회원 로그아웃 */
+	@RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.HEAD})
+	public String logout(HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		session.removeAttribute("member");
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 	/* 
 	 * 메일 검증 컨트롤러 
 	 * 코드를 메일로 전송하고 session에 코드를 임시적으로 저장한다.
