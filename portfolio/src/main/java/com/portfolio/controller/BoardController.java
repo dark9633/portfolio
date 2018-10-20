@@ -121,6 +121,18 @@ public class BoardController {
 	public String modifyPost(BoardVO vo, HttpServletRequest request, RedirectAttributes attr, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		session.removeAttribute("img");
+		
+		/* 비로그인시 메인 페이지로 */
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		if(member == null) {
+			return "redirect:/";
+		}
+
+		/* 작성자와 게시물의 닉네임이 다른경우 메인으로 */
+		if(!vo.getNickName().equals(member.getNickName())) {
+			return "redirect:/";
+		}
+		
 		int succ = bService.BoardModify(vo);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
@@ -132,7 +144,21 @@ public class BoardController {
 	
 	/* 게시글 삭제 */
 	@RequestMapping(value = "/delete/{category}/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public String delete(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, RedirectAttributes attr, Model model) throws Exception {
+	public String delete(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, RedirectAttributes attr, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		/* 비로그인시 메인 페이지로 */
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		if(member == null) {
+			return "redirect:/";
+		}
+
+		BoardVO board = bService.BoardView(bNumber);
+		
+		/* 작성자와 게시물의 닉네임이 다른경우 메인으로 */
+		if(!board.getNickName().equals(member.getNickName())) {
+			return "redirect:/";
+		}
+		
 		int succ = bService.BoardDelete(bNumber);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");

@@ -44,7 +44,6 @@
 					
 					<div class="form-group row">
 						<div class="col-xs-12 text-right">
-							<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
 							<input type="hidden" id="bNumber" name="bNumber" value="${ view.bNumber }">
 							<input type="hidden" id="nickName" name="nickName" value="${ view.nickName }">
 							<input type="hidden" id="category" name="category" value="${ cri.category }">

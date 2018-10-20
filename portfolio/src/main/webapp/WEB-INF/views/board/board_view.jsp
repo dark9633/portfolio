@@ -106,9 +106,10 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-10 text-right">
 							<br>
-							<!-- 임시적으로 모두 허용 -->
-							<a href="/board/modify/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg">수정</a>
-							<a href="/board/delete/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
+							<c:if test="${ view.nickName == member.nickName }">
+								<a href="/board/modify/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg">수정</a>
+								<a href="/board/delete/${ view.category }/${ view.bNumber }" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
+							</c:if>
 							<a href="/board/list/${ view.category }" class="btn btn-default btn-lg">목록보기</a>
 						</div>
 						<div class="col-md-1"></div>
