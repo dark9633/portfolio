@@ -33,6 +33,14 @@
 		<beans:constructor-arg value="/home/img/portfolio/"/>
 	</beans:bean>
 	
+	<beans:bean id="loginCheckInterceptor" class="com.portfolio.interceptor.LoginCheckInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/board/register/*"/>
+			<beans:ref bean="loginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.portfolio.controller" />
 	
 </beans:beans>
