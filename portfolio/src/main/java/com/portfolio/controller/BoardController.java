@@ -91,7 +91,22 @@ public class BoardController {
 	
 	/* 게시글 수정 페이지 */
 	@RequestMapping(value = "/modify/{category}/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public String modify(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, Model model) throws Exception {
+	public String modify(@PathVariable("category") String category, @PathVariable("bNumber") int bNumber, Model model, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		
+		/* 비로그인시 메인 페이지로 */
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		if(member == null) {
+			return "redirect:/";
+		}
+
+		BoardVO board = bService.BoardView(bNumber);
+		
+		/* 작성자와 게시물의 닉네임이 다른경우 메인으로 */
+		if(!board.getNickName().equals(member.getNickName())) {
+			return "redirect:/";
+		}
+		
 		Criteria cri = new Criteria();
 		cri.setCategory(category);
 		
@@ -104,7 +119,8 @@ public class BoardController {
 	/* 게시글 수정 */
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPost(BoardVO vo, HttpServletRequest request, RedirectAttributes attr, Model model) throws Exception {
-		request.getSession().removeAttribute("img");
+		HttpSession session = request.getSession();
+		session.removeAttribute("img");
 		int succ = bService.BoardModify(vo);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
