@@ -21,6 +21,7 @@ import com.portfolio.service.ReplyService;
 
 /*
  * 댓글 컨트롤러
+ * 2018/10/20 마지막으로 댓글 기능 추가 마무리, 추후 필요 기능이 생길 경우 하단에 기재
  * */
 @Controller
 @RequestMapping("/reply*")
