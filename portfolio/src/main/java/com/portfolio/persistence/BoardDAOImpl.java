@@ -50,4 +50,9 @@ public class BoardDAOImpl implements BoardDAO{
 		return session.delete(namespace + ".BoardDelete", bNumber);
 	}
 
+	@Override
+	public void BoardViewCountUpdate(Integer bNumber) throws Exception {
+		session.update(namespace + ".BoardViewCountUpdate", bNumber);
+	}
+
 }

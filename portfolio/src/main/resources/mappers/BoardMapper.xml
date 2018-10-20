@@ -42,4 +42,12 @@
 		DELETE FROM board WHERE bNumber=#{ bNumber }
 	</update>
 	
+	<update id="BoardViewCountUpdate">
+		UPDATE board
+		SET
+			viewCount=viewCount+1
+		WHERE 
+			bNumber = #{ bNumber }
+	</update>
+	
 </mapper>

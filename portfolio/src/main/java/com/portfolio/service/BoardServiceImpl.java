@@ -34,6 +34,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public BoardVO BoardView(Integer bNumber) throws Exception {
+		dao.BoardViewCountUpdate(bNumber);
 		return dao.BoardView(bNumber);
 	}
 
