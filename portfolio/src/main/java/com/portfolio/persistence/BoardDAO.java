@@ -29,4 +29,7 @@ public interface BoardDAO {
 	/* 게시글 뷰 업데이트 */
 	public void BoardViewCountUpdate(Integer bNumber) throws Exception;
 	
+	/* 게시글 댓글 업데이트 */
+	public void BoardReCountUpdate(BoardVO vo) throws Exception;
+	
 }

@@ -50,4 +50,12 @@
 			bNumber = #{ bNumber }
 	</update>
 	
+	<update id="BoardReCountUpdate">
+		UPDATE board
+		SET
+			reCount = reCount + #{ reCount }
+		WHERE 
+			bNumber = #{ bNumber}
+	</update>
+	
 </mapper>

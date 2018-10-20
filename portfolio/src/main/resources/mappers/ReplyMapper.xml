@@ -29,4 +29,8 @@
 			reNumber = #{ reNumber }
 	</update>
 	
+	<select id="ReplyView" resultType="ReplyVO">
+		SELECT * FROM reply where reNumber = #{ reNumber }
+	</select>
+	
 </mapper>

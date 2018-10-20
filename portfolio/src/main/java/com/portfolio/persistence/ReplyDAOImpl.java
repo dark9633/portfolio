@@ -39,4 +39,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return session.update(namespace + ".ReplyUpdate", vo);
 	}
 
+	@Override
+	public ReplyVO ReplyView(Integer reNumber) throws Exception {
+		return session.selectOne(namespace + ".ReplyView", reNumber);
+	}
+
 }

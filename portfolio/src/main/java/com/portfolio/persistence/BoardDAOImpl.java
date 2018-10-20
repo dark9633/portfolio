@@ -55,4 +55,9 @@ public class BoardDAOImpl implements BoardDAO{
 		session.update(namespace + ".BoardViewCountUpdate", bNumber);
 	}
 
+	@Override
+	public void BoardReCountUpdate(BoardVO vo) throws Exception {
+		session.update(namespace + ".BoardReCountUpdate", vo);
+	}
+
 }

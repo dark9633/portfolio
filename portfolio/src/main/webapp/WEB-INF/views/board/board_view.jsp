@@ -89,8 +89,8 @@
 							<div class="col-md-12 col-sm-12 col-xs-12"><hr></div>
 							
 							<div class="col-md-12 text-right">
-								<span class="glyphicon glyphicon-eye-open title-icon"> ${ view.viewCount }</span>
-								<span class="glyphicon glyphicon glyphicon-comment title-icon"> ${ view.reCount }</span><!-- 게시판에서는 미사용 -->
+								<span class="glyphicon glyphicon-eye-open title-icon"> <b>${ view.viewCount }</b></span>
+								<span class="glyphicon glyphicon glyphicon-comment title-icon"> <b class="reCount">${ view.reCount }</b></span><!-- 게시판에서는 미사용 -->
 								<i style="padding: 10px;">
 									<fmt:formatDate pattern="yyyy-MM-dd" value="${view.regDate }"/>
 								</i>
@@ -261,9 +261,7 @@
 		
 		//댓글 등록
 		$(document).on("click", "#replyBtn", function(e){
-			
 			var content = $("#content").val();
-			
 			$.ajax({
 				type : 'post',
 				url : '/reply',
@@ -279,6 +277,7 @@
 				}),
 				success : function(result){
 					if(result == "succ"){
+						$(".reCount").html(Number($(".reCount").html()) + 1);
 						$('#content').val("");
 						getReply(5);
 					}else{
@@ -304,6 +303,7 @@
 					dataType : 'text',
 					success : function(result){
 						if(result == "succ"){
+							$(".reCount").html(Number($(".reCount").html()) - 1);
 							getReply(5);
 						}else{
 							alert("댓글 삭제에 실패했습니다.");
