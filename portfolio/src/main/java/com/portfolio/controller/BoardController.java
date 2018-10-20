@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.portfolio.domain.BoardVO;
 import com.portfolio.domain.Criteria;
+import com.portfolio.domain.MemberVO;
 import com.portfolio.domain.PageMaker;
 import com.portfolio.service.BoardService;
 import com.portfolio.utils.UploadFileUtils;
@@ -76,7 +77,9 @@ public class BoardController {
 	/* 게시글 등록 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPost(BoardVO vo, HttpServletRequest request, RedirectAttributes attr, Model model) throws Exception {
-		request.getSession().removeAttribute("img");
+		HttpSession session = request.getSession();
+		session.removeAttribute("img");
+		vo.setNickName(((MemberVO) session.getAttribute("member")).getNickName());
 		int succ = bService.BoardRegister(vo);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
