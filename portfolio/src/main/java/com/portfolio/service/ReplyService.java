@@ -19,4 +19,7 @@ public interface ReplyService {
 	/* 댓글 수정 */
 	public int ReplyUpdate(ReplyVO vo) throws Exception;
 	
+	/* 댓글 상세 */
+	public ReplyVO ReplyView(Integer reNumber) throws Exception;
+	
 }

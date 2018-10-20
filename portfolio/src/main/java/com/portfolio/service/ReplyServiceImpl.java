@@ -48,5 +48,10 @@ public class ReplyServiceImpl implements ReplyService{
 	public int ReplyUpdate(ReplyVO vo) throws Exception {
 		return dao.ReplyUpdate(vo);
 	}
+
+	@Override
+	public ReplyVO ReplyView(Integer reNumber) throws Exception {
+		return dao.ReplyView(reNumber);
+	}
 	
 }

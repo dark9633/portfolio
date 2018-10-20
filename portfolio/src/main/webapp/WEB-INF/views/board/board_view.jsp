@@ -128,13 +128,25 @@
 					<div class="col-lg-12">
 						<form method="post" onsubmit="return false;">
 							<div class="row">
-								<!-- 임시적으로 모두 허용 -->
-								<div class="col-lg-10 form-group">
-									<textarea class="form-control" name="content" id="content" rows="5"></textarea>
-								</div>
-								<div class="col-lg-2 form-group">
-									<input type="submit" id="replyBtn" class="btn btn-default" value="등록">
-								</div>
+								<!-- 비로그인 처리 -->
+								<c:if test="${ member == null }">
+									<div class="col-md-10 form-group">
+										<textarea class="form-control" rows="5" placeholder="댓글을 작성하시려면 로그인을 해주세요" disabled="disabled"></textarea>
+									</div>
+									<div class="col-md-2 form-group">
+										<input type="submit" class="btn btn-default" value="등록" disabled="disabled">
+									</div>
+								</c:if>
+								
+								<!-- 로그인 처리 및 댓글 처리 -->
+								<c:if test="${ member != null }">
+									<div class="col-lg-10 form-group">
+										<textarea class="form-control" name="content" id="content" rows="5"></textarea>
+									</div>
+									<div class="col-lg-2 form-group">
+										<input type="submit" id="replyBtn" class="btn btn-default" value="등록">
+									</div>
+								</c:if>
 							
 							</div>
 						</form>
@@ -170,7 +182,7 @@
 	
 	<script type="text/javascript">
 		var bNumber = ${ bNumber };
-		var nickName = "김남";	//회원 생성전까지 임시적으로 사용
+		var nickName = "${ member.nickName }";	//회원 생성전까지 임시적으로 사용
 	
 		//게시물 삭제 메소드
 		$(document).on("click", "#deleteBtn", function(e){
@@ -233,9 +245,11 @@
 						html += "</p>";
 						html += "</div>";
 						html += "<p class='text-right'>";
-						// 임시적으로 모두 허용
-						html += "<a href='#' class='btn btn-default btn-sm replyMod' data-toggle='modal' data-target='#reply-mod-modal' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 수정</a>";
-						html += "<a href='#' class='btn btn-default btn-sm replyDel' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 삭제</a>";
+						
+						if(entry.nickName == nickName){
+							html += "<a href='#' class='btn btn-default btn-sm replyMod' data-toggle='modal' data-target='#reply-mod-modal' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 수정</a>";
+							html += "<a href='#' class='btn btn-default btn-sm replyDel' data='"+entry.reNumber+"'><i class='fa fa-reply'></i> 삭제</a>";
+						}
 						
 						html += "</p></div></div></div>";
 						

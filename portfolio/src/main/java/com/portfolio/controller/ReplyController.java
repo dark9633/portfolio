@@ -4,6 +4,8 @@ package com.portfolio.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.portfolio.domain.MemberVO;
 import com.portfolio.domain.ReplyVO;
 import com.portfolio.service.ReplyService;
 
@@ -42,8 +45,14 @@ public class ReplyController {
 	
 	/* 댓글 등록 */
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<String> register(@RequestBody ReplyVO vo){
+	public ResponseEntity<String> register(@RequestBody ReplyVO vo, HttpServletRequest request){
 		ResponseEntity<String> entity = null;
+		HttpSession session = request.getSession();
+		
+		/* 로그인 확인 */
+		if(session.getAttribute("member") == null) {
+			return new ResponseEntity<String>("login", HttpStatus.OK);
+		}
 		
 		try {
 			int succ = service.ReplyRegister(vo);
@@ -61,10 +70,24 @@ public class ReplyController {
 	
 	/* 댓글 삭제 */
 	@RequestMapping(value = "/{reNumber}", method = RequestMethod.DELETE)
-	public ResponseEntity<String> delete(@PathVariable("reNumber") Integer reNumber){
+	public ResponseEntity<String> delete(@PathVariable("reNumber") Integer reNumber, HttpServletRequest request){
 		ResponseEntity<String> entity = null;
+		HttpSession session = request.getSession();
+		
+		/* 로그인 확인 */
+		if(session.getAttribute("member") == null) {
+			return new ResponseEntity<String>("fail", HttpStatus.OK);
+		}
 		
 		try {
+			MemberVO member = (MemberVO) session.getAttribute("member");
+			ReplyVO reply = service.ReplyView(reNumber);
+			
+			/* 작성자 확인 */
+			if(!reply.getNickName().equals(member.getNickName())) {
+				return new ResponseEntity<String>("fail", HttpStatus.OK);
+			}
+			
 			int succ = service.ReplyDelete(reNumber);
 			if(succ > 0){
 				entity = new ResponseEntity<String>("succ", HttpStatus.OK);
@@ -80,10 +103,24 @@ public class ReplyController {
 	
 	/* 댓글 수정*/
 	@RequestMapping(value = "", method = {RequestMethod.PUT, RequestMethod.PATCH})
-	public ResponseEntity<String> update(@RequestBody ReplyVO vo){
+	public ResponseEntity<String> update(@RequestBody ReplyVO vo, HttpServletRequest request){
 		ResponseEntity<String> entity = null;
+		HttpSession session = request.getSession();
+		
+		/* 로그인 확인 */
+		if(session.getAttribute("member") == null) {
+			return new ResponseEntity<String>("fail", HttpStatus.OK);
+		}
 		
 		try {
+			
+			MemberVO member = (MemberVO) session.getAttribute("member");
+			
+			/* 작성자 확인 */
+			if(!vo.getNickName().equals(member.getNickName())) {
+				return new ResponseEntity<String>("fail", HttpStatus.OK);
+			}
+			
 			int succ = service.ReplyUpdate(vo);
 			if(succ > 0){
 				entity = new ResponseEntity<String>("succ", HttpStatus.OK);
