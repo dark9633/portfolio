@@ -13,6 +13,9 @@ public class SkillsVO {
 	private int viewCount;
 	private Date regDate;
 	
+	/* 추가 */
+	private String subTitle;
+	
 	public Integer getSkNumber() {
 		return skNumber;
 	}
@@ -54,6 +57,13 @@ public class SkillsVO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	
+	public String getSubTitle() {
+		return subTitle;
+	}
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 	
 }

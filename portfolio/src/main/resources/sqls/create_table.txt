@@ -71,3 +71,5 @@ ALTER TABLE reply ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDA
 
 추후 변경 + 추가사항이 있을 경우 하단에 기재한다. 컬럼명이 수정되거나 추가되는 경우 domain 의 vo 객체도 수정이 필요하다.
 
+skills의 subCategory add
+alter table skills add subCategory varchar(30) not null;

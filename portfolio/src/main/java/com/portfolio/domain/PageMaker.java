@@ -97,10 +97,9 @@ public class PageMaker {
 		return cri;
 	}
 	
+	/* default UriComponents */
 	public String makeQuery(int page) throws Exception{
-		
 		UriComponents uriComponents = null;
-		
 		if(cri.getSearch() == null || cri.getSearch().equals("")){
 			uriComponents = UriComponentsBuilder
 					.newInstance()
@@ -111,24 +110,25 @@ public class PageMaker {
 		}else{
 			uriComponents = UriComponentsBuilder
 					.newInstance()
-					.queryParam("type", cri.getType())
 					.queryParam("category", cri.getCategory())
 					.queryParam("search", URLEncoder.encode(cri.getSearch(), "UTF-8" ))
 					.queryParam("page", page)
 					.queryParam("perPageNum", cri.getPerPageNum())
 					.build();
 		}
-		
 		return uriComponents.toString();
 	}
 	
-	public String makeQueryMember(int page) throws Exception{
-		
+	/* skills UriComponents */
+	public String makeQuerySkills(int page) throws Exception{
 		UriComponents uriComponents = null;
-		
 		uriComponents = UriComponentsBuilder
 				.newInstance()
+				.queryParam("category", cri.getCategory())
+				.queryParam("subCategory", cri.getType())
 				.queryParam("search", URLEncoder.encode(cri.getSearch(), "UTF-8" ))
+				.queryParam("page", page)
+				.queryParam("perPageNum", cri.getPerPageNum())
 				.queryParam("page", page)
 				.build();
 		return uriComponents.toString();

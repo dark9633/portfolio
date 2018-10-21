@@ -1,0 +1,14 @@
+a {
+	color: #333333;
+	text-decoration: none;
+}
+
+a:HOVER{
+	color: #bbbbbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.list > tr > td > a:VISITED{
+	color: #bbbbbb;
+}

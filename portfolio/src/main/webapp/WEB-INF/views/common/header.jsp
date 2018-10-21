@@ -35,11 +35,12 @@
 							기술개발<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/skills/list/linux">LINUX</a></li>
-							<li><a href="/skills/list/web">WEB</a></li>
-							<li><a href="/skills/list/bootstrap">BOOTSTRAP</a></li>
-							<li><a href="/skills/list/android">ANDROID</a></li>
-							<li><a href="/skills/list/database">DATABASE</a></li>
+							<li><a href="/skills/list">전체</a></li>
+							<li><a href="/skills/list/linux">리눅스</a></li>
+							<li><a href="/skills/list/web">웹서버</a></li>
+							<li><a href="/skills/list/bootstrap">부트스트랩</a></li>
+							<li><a href="/skills/list/android">안드로이드</a></li>
+							<li><a href="/skills/list/database">데이터베이스</a></li>
 							<li><a href="/skills/list/api">API</a></li>
 						</ul>
 					</li>

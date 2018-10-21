@@ -10,6 +10,7 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	private String category;
+	private String subCategory;
 	private String search;
 	private String type;
 	
@@ -17,6 +18,7 @@ public class Criteria {
 		this.page = 1;
 		this.perPageNum = 20;
 		this.category = null;
+		this.subCategory = null;
 		this.search = "";
 		this.type = "";
 	}
@@ -61,6 +63,14 @@ public class Criteria {
 		this.category = category;
 	}
 	
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
 	public String getSearch() {
 		return search;
 	}

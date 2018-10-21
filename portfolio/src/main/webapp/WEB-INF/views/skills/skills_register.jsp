@@ -20,7 +20,7 @@
 	<meta property="og:site_name" content=""/> 
 	<meta property="og:url" content=""/>
 	
-	<title>웹 개발자 포트폴리오 | 포트폴리오 리스트</title>
+	<title>웹 개발자 포트폴리오 | 스킬 등록</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
+					<h1>Hello world!</h1>
 				</div>
 			</div>
 		</div>
