@@ -124,12 +124,20 @@ public class PageMaker {
 		UriComponents uriComponents = null;
 		uriComponents = UriComponentsBuilder
 				.newInstance()
-				.queryParam("category", cri.getCategory())
-				.queryParam("subCategory", cri.getType())
-				.queryParam("search", URLEncoder.encode(cri.getSearch(), "UTF-8" ))
 				.queryParam("page", page)
 				.queryParam("perPageNum", cri.getPerPageNum())
+				.queryParam("subCategory", cri.getSubCategory())
+				.build();
+		return uriComponents.toString();
+	}
+	
+	/* skills UriComponents */
+	public String makeQuerySkills2(int page) throws Exception{
+		UriComponents uriComponents = null;
+		uriComponents = UriComponentsBuilder
+				.newInstance()
 				.queryParam("page", page)
+				.queryParam("perPageNum", cri.getPerPageNum())
 				.build();
 		return uriComponents.toString();
 	}

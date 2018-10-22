@@ -33,6 +33,8 @@ import com.portfolio.utils.UploadFileUtils;
 /*
  * 게시판 컨트롤러
  * 2018/10/20 마지막으로 게시판 기능 추가 마무리, 추후 필요 기능이 생길 경우 하단에 기재
+ * 
+ * 1. 검색기능 추가
  * */
 @Controller
 @RequestMapping("/board*")
@@ -172,6 +174,7 @@ public class BoardController {
 	/*
 	 * 멀티 이미지 업로드
 	 * 설정상 C:\home\img\portfolio폴더가 존재해야 한다.
+	 * 추후 개별 관리를 위해 모든 이미지 업로드는 컨트롤러 별로 존재한다.
 	 * */
 	@ResponseBody
 	@RequestMapping(value = "/imageUpload", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")

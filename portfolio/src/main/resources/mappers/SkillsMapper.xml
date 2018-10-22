@@ -5,4 +5,93 @@
 
 <mapper namespace="com.portfolio.mapper.SkillsMapper">
 
+	<select id="SkillsSubCategoryListAll" resultType="SkillsVO">
+		SELECT nickName, category, subCategory FROM skills where nickName = #{ nickName } and category = #{ category } group by subCategory
+	</select>
+	
+	<select id="SkillsList" resultType="SkillsVO">
+		SELECT * FROM skills where nickName = #{ nickName } and category = #{ category }
+		<include refid="sub"/>
+	</select>
+	
+	<select id="SkillsListCount" resultType="int">
+		SELECT count(*) FROM skills where nickName = #{ nickName } and category = #{ category }
+		<include refid="sub"/>
+	</select>
+	
+	<select id="SkillsListGroup" resultType="SkillsVO">
+		select * from skills 
+		<if test="category != null">
+			<if test="category != ''.toString()">
+				where category = #{ category }
+			</if>
+		</if>
+		group by nickName, category 
+		order by regDate desc
+		limit #{ pageStart}, #{ perPageNum }
+	</select>
+	
+	<select id="SkillsListGroupCount" resultType="int">
+		select count(c.subCategory) as cnt from (
+			select * from skills 
+			<if test="category != null">
+				<if test="category != ''.toString()">
+					where category = #{ category }
+				</if>
+			</if>
+			group by nickName, category
+		) as c
+	</select>
+	
+	<select id="SkillsSubCategoryList" resultType="SkillsVO">
+		select * from skills 
+		where
+			nickName = #{ nickName } and category = #{ category }
+		group by subCategory
+		limit 8
+	</select>
+	
+	<select id="SkillsView" resultType="SkillsVO">
+		select * from skills where skNumber = #{ skNumber }
+	</select>
+	
+	<insert id="SkillsRegister">
+		INSERT INTO skills
+			(nickName, category, subCategory, title, content)
+		VALUES 
+			(#{ nickName }, #{ category }, #{ subCategory }, #{ title }, #{ content })
+	</insert>
+	
+	<update id="SkillsModify">
+		UPDATE skills
+		SET
+			category=#{ category },
+			subCategory=#{ subCategory },
+			title=#{ title },
+			content=#{ content },
+			regDate=NOW()
+		WHERE 
+			skNumber=#{ skNumber }
+	</update>
+	
+	<delete id="SkillsDelete">
+		DELETE FROM skills WHERE skNumber=#{ skNumber }
+	</delete>
+	
+	<update id="SkillsViewCountUpdate">
+		UPDATE skills
+		SET
+			viewCount=viewCount+1
+		WHERE 
+			skNumber=#{skNumber}
+	</update>
+	
+	<sql id="sub">
+		<if test="subCategory != null">
+			<if test="subCategory != ''.toString()">
+				and subCategory = #{ subCategory }
+			</if>
+		</if>
+	</sql>
+	
 </mapper>

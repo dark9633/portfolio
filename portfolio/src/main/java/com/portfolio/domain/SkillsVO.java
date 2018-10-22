@@ -14,7 +14,7 @@ public class SkillsVO {
 	private Date regDate;
 	
 	/* 추가 */
-	private String subTitle;
+	private String subCategory;
 	
 	public Integer getSkNumber() {
 		return skNumber;
@@ -59,11 +59,11 @@ public class SkillsVO {
 		this.regDate = regDate;
 	}
 	
-	public String getSubTitle() {
-		return subTitle;
+	public String getSubCategory() {
+		return subCategory;
 	}
-	public void setSubTitle(String subTitle) {
-		this.subTitle = subTitle;
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
 	}
 	
 }

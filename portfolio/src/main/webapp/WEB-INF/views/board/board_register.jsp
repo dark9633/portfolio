@@ -44,8 +44,7 @@
 					
 					<div class="form-group row">
 						<div class="col-xs-12 text-right">
-							<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
-							<input type="hidden" id="nickName" name="nickName" value="김남">
+							<input type="hidden" id="nickName" name="nickName" value="${ member.nickName }">
 							<input type="hidden" id="category" name="category" value="${ cri.category }">
 							<input type="file" id="file" style="display: none;" multiple="multiple">
 							<input type="submit" id="submitBtn" class="btn btn-default" value="등록">

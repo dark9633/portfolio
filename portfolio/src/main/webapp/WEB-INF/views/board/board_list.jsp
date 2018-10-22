@@ -27,16 +27,6 @@
 	<jsp:include page="../common/header.jsp" />
 
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-12 col-lg-12">
-				<form class="navbar-form navbar-right hidden-xs">
-					<div class="form-group">
-						<!-- 회원 생성 전까지는 임시 닉네임 사용 -->
-						<a href="/board/register/${pageMaker.cri.category}" class="btn btn-default search-bth">글쓰기</a>
-					</div>
-				</form>
-			</div>
-		</div>
 		<!-- table line start -->
 		<div class="row">
 		
@@ -66,41 +56,6 @@
 									</td>
 								</tr>
 							</c:forEach>
-						</tbody>
-						
-						<!-- list pagenation line -->
-						<tbody class="page">
-							<tr>
-								<td colspan="5" style="text-align: center;">
-									<ul class="pagination">
-										<c:if test="${ pageMaker.prev }">
-											<li>
-												<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
-											</li>
-										</c:if>
-										
-										<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
-											 <c:if test="${ pageMaker.cri.page == idx }">
-											 	<li class="active">
-											 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-											 	</li>
-											 </c:if>
-											 <c:if test="${ pageMaker.cri.page != idx }">
-											 	<li>
-											 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-											 	</li>
-											 </c:if>
-										</c:forEach>
-										
-										<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
-											<li>
-												<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
-											</li>
-										</c:if>
-										
-									</ul>
-								</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -154,47 +109,53 @@
 									</tr>
 								</c:forEach>
 							</tbody>
-							
-							<!-- list pagenation line -->
-							<tbody class="page">
-								<tr>
-									<td colspan="5" style="text-align: center;">
-										<ul class="pagination">
-											<c:if test="${ pageMaker.prev }">
-												<li>
-													<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
-												</li>
-											</c:if>
-											
-											<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
-												 <c:if test="${ pageMaker.cri.page == idx }">
-												 	<li class="active">
-												 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-												 	</li>
-												 </c:if>
-												 <c:if test="${ pageMaker.cri.page != idx }">
-												 	<li>
-												 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
-												 	</li>
-												 </c:if>
-											</c:forEach>
-											
-											<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
-												<li>
-													<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
-												</li>
-											</c:if>
-											
-										</ul>
-									</td>
-								</tr>
-							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-			<!-- list pc and tablet line -->
-			
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<ul class="pagination">
+					<li>
+						<c:if test="${ member != null }">
+							<a href="/board/register/${pageMaker.cri.category}" class="btn btn-default">글쓰기</a>
+						</c:if>
+						<c:if test="${ member == null }">
+							<a href="#" onclick="alert('로그인 후 이용하실 수 있습니다.')" class="btn btn-default">글쓰기</a>
+						</c:if>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-right">
+				<ul class="pagination">
+					<c:if test="${ pageMaker.prev }">
+						<li>
+							<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
+						</li>
+					</c:if>
+					
+					<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
+						 <c:if test="${ pageMaker.cri.page == idx }">
+						 	<li class="active">
+						 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+						 	</li>
+						 </c:if>
+						 <c:if test="${ pageMaker.cri.page != idx }">
+						 	<li>
+						 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+						 	</li>
+						 </c:if>
+					</c:forEach>
+					
+					<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
+						<li>
+							<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
+						</li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
 		<!-- table line end -->
 		

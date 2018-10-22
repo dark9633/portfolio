@@ -143,7 +143,6 @@
 			window.onbeforeunload = null;
 			form.submit();
 		});
-		
 	</script>
 						
 	<jsp:include page="../common/footer.jsp" />
