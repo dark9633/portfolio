@@ -16,6 +16,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="/info">개인이력</a></li>
+					<li><a href="/portfolio/list">포트폴리오</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							기술개발<span class="caret"></span>
@@ -28,20 +29,6 @@
 							<li><a href="/skills/list/android">안드로이드</a></li>
 							<li><a href="/skills/list/database">데이터베이스</a></li>
 							<li><a href="/skills/list/api">API</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							포트폴리오<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="/portfolio/list/서버개발">서버개발</a></li>
-							<li><a href="/portfolio/list/플레이스24">플레이스24</a></li>
-							<li><a href="/portfolio/list/피그미웹">피그미웹</a></li>
-							<li><a href="/portfolio/list/푸시미웹">푸시미웹</a></li>
-							<li><a href="/portfolio/list/관리자앱">관리자앱</a></li>
-							<li><a href="/portfolio/list/피그미앱">피그미앱</a></li>
-							<li><a href="/portfolio/list/자동화">자동화</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

@@ -5,4 +5,20 @@
 
 <mapper namespace="com.portfolio.mapper.PortfolioMapper">
 
+	<select id="PortfolioList" resultType="PortfolioVO">
+		select * from portfolio
+		limit #{ pageStart}, #{ perPageNum }
+	</select>
+	
+	<select id="PortfolioListCount" resultType="int">
+		select count(*) from portfolio
+	</select>
+	
+	<insert id="PortfolioRegister">
+		INSERT INTO portfolio
+			(nickName, category, title, simpleContent, content, image)
+		VALUES 
+			(#{ nickName }, #{ category }, #{ title }, #{ simpleContent }, #{ content }, #{ image })
+	</insert>
+	
 </mapper>

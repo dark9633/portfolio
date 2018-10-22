@@ -73,3 +73,5 @@ ALTER TABLE reply ADD FOREIGN KEY(nickName) REFERENCES member (nickName) ON UPDA
 
 skills의 subCategory add
 alter table skills add subCategory varchar(30) not null;
+alter table portfolio add image varchar(300) not null;
+alter table portfolio add simpleContent varchar(900) not null;

@@ -2,6 +2,8 @@ package com.portfolio.domain;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 
 public class PortfolioVO {
 	
@@ -12,6 +14,11 @@ public class PortfolioVO {
 	private String content;
 	private int viewCount;
 	private Date regDate;
+	
+	/* 추가 */
+	private String image;
+	private String simpleContent;
+	private MultipartFile file;
 	
 	public Integer getPfNumber() {
 		return pfNumber;
@@ -54,6 +61,25 @@ public class PortfolioVO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getSimpleContent() {
+		return simpleContent;
+	}
+	public void setSimpleContent(String simpleContent) {
+		this.simpleContent = simpleContent;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	
 }

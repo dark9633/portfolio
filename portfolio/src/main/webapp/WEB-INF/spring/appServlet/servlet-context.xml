@@ -38,6 +38,7 @@
 		<interceptor>
 			<mapping path="/board/register/*"/>
 			<mapping path="/skills/register"/>
+			<mapping path="/portfolio/register"/>
 			<beans:ref bean="loginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
