@@ -66,8 +66,8 @@
 						<div class="col-md-10 text-right">
 							<br>
 							<c:if test="${ view.nickName == member.nickName }">
-								<a href="/portfolio/modify/${ view.pfNumber }" class="btn btn-default btn-lg">수정</a>
-								<a href="/portfolio/delete/${ view.pfNumber }" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
+								<a href="/portfolios/modify/${ view.pfNumber }" class="btn btn-default btn-lg">수정</a>
+								<a href="/portfolios/delete/${ view.pfNumber }" class="btn btn-default btn-lg" id="deleteBtn">삭제</a>
 							</c:if>
 							<a href="" class="btn btn-default btn-lg">목록보기</a>
 						</div>

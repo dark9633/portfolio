@@ -33,7 +33,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<form action="/portfolio/register" id="form" method="post" enctype="multipart/form-data">
+				<form action="/portfolios/register" id="form" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
 							<select class="form-control" id="category" name="category">

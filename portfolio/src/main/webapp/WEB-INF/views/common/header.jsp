@@ -16,7 +16,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="/info">개발자</a></li>
-					<li><a href="/portfolio/list">포트폴리오</a></li>
+					<li><a href="/portfolios/list">포트폴리오</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							기술개발<span class="caret"></span>

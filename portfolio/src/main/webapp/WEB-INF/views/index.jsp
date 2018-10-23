@@ -79,7 +79,7 @@
 						<h2>포트폴리오</h2>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-						<h2><a href="/portfolio/list">+</a></h2>
+						<h2><a href="/portfolios/list">+</a></h2>
 					</div>
 				</div>
 				<div class="row">
@@ -88,7 +88,7 @@
 							<c:forEach items="${ portfolioList }" var="pf">
 								<c:if test="${ pf.image != '' }">
 									<div class="image-div">
-										<a href="/portfolio/view/${ pf.pfNumber }">
+										<a href="/portfolios/view/${ pf.pfNumber }">
 											<div class="over-div">
 												<p>
 													<b>${ pf.title }</b><br><br>

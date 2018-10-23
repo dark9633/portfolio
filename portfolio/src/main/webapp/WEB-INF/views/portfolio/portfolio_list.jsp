@@ -34,7 +34,7 @@
 					<c:forEach items="${ portfolio }" var="pf">
 						<c:if test="${ pf.image != '' }">
 							<div class="image-div">
-								<a href="/portfolio/view/${ pf.pfNumber }">
+								<a href="/portfolios/view/${ pf.pfNumber }">
 									<div class="over-div">
 										<p>
 											<b>${ pf.title }</b><br><br>
@@ -58,7 +58,7 @@
 					<ul class="pagination">
 						<li>
 							<c:if test="${ member != null }">
-								<a href="/portfolio/register">글쓰기</a>
+								<a href="/portfolios/register">글쓰기</a>
 							</c:if>
 							<c:if test="${ member == null }">
 								<a href="#" onclick="alert('로그인 후 이용하실 수 있습니다.')">글쓰기</a>

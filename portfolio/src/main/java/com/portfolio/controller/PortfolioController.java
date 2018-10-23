@@ -41,7 +41,7 @@ import com.portfolio.utils.UploadFileUtils;
  * 5. 상세한 검증 추가
  * */
 @Controller
-@RequestMapping("/portfolio*")
+@RequestMapping("/portfolios*")
 public class PortfolioController {
 	
 	//private static final Logger logger = LoggerFactory.getLogger(PortfolioController.class);
@@ -85,7 +85,7 @@ public class PortfolioController {
 		vo.setNickName(((MemberVO)session.getAttribute("member")).getNickName());
 		vo.setSimpleContent(vo.getSimpleContent().replaceAll("\\n", "<br/>"));
 		
-		vo.setImage(UploadFileUtils.noneChangeNameUploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()));
+		vo.setImage(UploadFileUtils.defaultUploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()));
 		
 		int succ = service.PortfolioRegister(vo);
 		if(succ > 0){
@@ -93,7 +93,7 @@ public class PortfolioController {
 		}else{
 			attr.addFlashAttribute("result", "fail");
 		}
-		return "redirect:/portfolio/list/";
+		return "redirect:/portfolios/list/";
 	}
 	
 	/* 포트폴리오 수정 페이지 */
@@ -139,7 +139,7 @@ public class PortfolioController {
 		
 		/* 기존 이미지 변경시 이미지 삭제 추가 필요 */
 		if(file != null && !file.getOriginalFilename().equals("")){
-			vo.setImage(UploadFileUtils.noneChangeNameUploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()));
+			vo.setImage(UploadFileUtils.defaultUploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()));
 		}else{
 			vo.setImage(service.PortfolioView(vo.getPfNumber()).getImage());
 		}
@@ -151,7 +151,7 @@ public class PortfolioController {
 		}else{
 			attr.addFlashAttribute("result", "fail");
 		}
-		return "redirect:/portfolio/view/"+vo.getPfNumber();
+		return "redirect:/portfolios/view/"+vo.getPfNumber();
 	}
 	
 	/* 포트폴리오 삭제 */
@@ -177,7 +177,7 @@ public class PortfolioController {
 		}else{
 			attr.addFlashAttribute("result", "fail");
 		}
-		return "redirect:/portfolio/list";
+		return "redirect:/portfolios/list";
 	}
 	
 	/*
