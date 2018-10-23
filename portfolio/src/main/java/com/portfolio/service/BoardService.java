@@ -26,4 +26,7 @@ public interface BoardService {
 	/* 게시글 삭제 */
 	public int BoardDelete(Integer bNumber) throws Exception;
 	
+	/* 게시글 리스트 메인출력용*/
+	public List<BoardVO> BoardListNew() throws Exception;
+	
 }

@@ -57,7 +57,7 @@ public class SkillsController {
 	@RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String list(Model model, Criteria cri) throws Exception {
 		/* 영역을 4개로 잡아서 4의 배수로 수정필요 */
-		cri.setPerPageNum(8);
+		cri.setPerPageNum(12);
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);

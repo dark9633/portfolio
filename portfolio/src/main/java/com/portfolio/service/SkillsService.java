@@ -39,4 +39,7 @@ public interface SkillsService {
 	/* 스킬 삭제 */
 	public int SkillsDelete(Integer skNumber) throws Exception;
 	
+	/* 스킬 리스트 그룹 메인출력용 */
+	public List<SkillsVO> SkillsListGroupNew() throws Exception;
+	
 }

@@ -21,15 +21,6 @@
 	<meta property="og:site_name" content=""/> 
 	<meta property="og:url" content=""/>
 	
-	<style type="text/css">
-		.body-nav{
-		
-		}
-		.body-content{
-		
-		}
-	</style>
-	
 	<title>웹 개발자 포트폴리오 | 스킬 리스트 카테고리</title>
 </head>
 <body>

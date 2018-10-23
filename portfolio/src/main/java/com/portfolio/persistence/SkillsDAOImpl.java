@@ -75,5 +75,10 @@ public class SkillsDAOImpl implements SkillsDAO{
 	public void SkillsViewCountUpdate(Integer skNumber) throws Exception {
 		session.update(namespace + ".SkillsViewCountUpdate", skNumber);
 	}
+
+	@Override
+	public List<SkillsVO> SkillsListGroupNew() throws Exception {
+		return session.selectList(namespace + ".SkillsListGroupNew");
+	}
 	
 }

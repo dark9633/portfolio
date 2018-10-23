@@ -6,6 +6,7 @@
 <html>
 <head>
 	<jsp:include page="../common/common.jsp" />
+	<link rel="stylesheet" href="/resources/css/portfolio/portfolio_view.css">
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
@@ -20,47 +21,6 @@
 	<meta property="og:image" content=""/>
 	<meta property="og:site_name" content=""/> 
 	<meta property="og:url" content=""/>
-	
-	<style type="text/css">
-		.content-my-list{
-			margin-bottom: 0;
-			padding: 10px 10px 10px 10px;
-		}
-		
-		.mainContentAll{
-			min-height:400px; 
-			border: 1px solid #dddddd;
-		}
-		
-		.mainContent{
-			min-height: 100px;
-			padding: 30px;
-		}
-		
-		.mainContent p img, .mainContent div img, .mainContent img{
-			max-width: 100%;
-			height: auto;
-		}
-		
-		.comment-post img{
-			max-width: 100%;
-			height: auto;
-			padding: 15px 15px 15px 15px;
-		}
-		
-		.title-icon{
-			padding: 3px 3px 3px 3px;
-		}
-		
-		.in-add-foot{
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-		
-		#bReplyContent{
-			resize: vertical;
-		}
-	</style>
 	
 	<title>웹 개발자 포트폴리오 | 포트폴리오 상세</title>
 </head>
@@ -119,16 +79,7 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript">
-		//스킬 삭제 메소드
-		$(document).on("click", "#deleteBtn", function(e){
-			e.preventDefault();
-			var c = confirm("정말로 삭제하시겠습니까?");
-			if(c){
-				location.href = $("#deleteBtn").attr("href");
-			}
-		});
-	</script>
+	<script src="/resources/js/portfolio/portfolio_view.js"></script>
 
 	<jsp:include page="../common/footer.jsp" />
 </body>

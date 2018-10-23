@@ -60,4 +60,9 @@ public class BoardDAOImpl implements BoardDAO{
 		session.update(namespace + ".BoardReCountUpdate", vo);
 	}
 
+	@Override
+	public List<BoardVO> BoardListNew() throws Exception {
+		return session.selectList(namespace + ".BoardListNew");
+	}
+
 }

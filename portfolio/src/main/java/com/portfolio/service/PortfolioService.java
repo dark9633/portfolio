@@ -26,4 +26,7 @@ public interface PortfolioService {
 	/* 포트폴리오 삭제 */
 	public int PortfolioDelete(Integer pfNumber) throws Exception;
 	
+	/* 포트폴리오 리스트 메인출력용 */
+	public List<PortfolioVO> PortfolioListNew() throws Exception;
+	
 }

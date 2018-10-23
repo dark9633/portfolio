@@ -58,4 +58,8 @@
 			bNumber = #{ bNumber}
 	</update>
 	
+	<select id="BoardListNew" resultType="BoardVO">
+		select * from board order by regDate desc limit 18
+	</select>
+	
 </mapper>

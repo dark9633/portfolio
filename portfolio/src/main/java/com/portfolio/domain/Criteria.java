@@ -17,7 +17,7 @@ public class Criteria {
 	
 	public Criteria() {
 		this.page = 1;
-		this.perPageNum = 18;
+		this.perPageNum = 24;
 		this.category = null;
 		this.subCategory = "";
 		this.nickName = "";

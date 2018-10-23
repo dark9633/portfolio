@@ -42,4 +42,7 @@ public interface SkillsDAO {
 	/* 스킬 뷰 업데이트 */
 	public void SkillsViewCountUpdate(Integer skNumber) throws Exception;
 	
+	/* 스킬 리스트 그룹 메인출력용 */
+	public List<SkillsVO> SkillsListGroupNew() throws Exception;
+	
 }

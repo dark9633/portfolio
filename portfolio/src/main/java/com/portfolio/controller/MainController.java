@@ -1,7 +1,11 @@
 package com.portfolio.controller;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.portfolio.service.MainService;
+import com.portfolio.domain.SkillsVO;
+import com.portfolio.service.BoardService;
+import com.portfolio.service.PortfolioService;
+import com.portfolio.service.SkillsService;
 
 /*
  * 기본 컨트롤러
@@ -24,11 +31,28 @@ public class MainController {
 	
 	//private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@Inject private MainService service;
+	//@Inject private MainService service;
+	@Inject private BoardService bService;
+	@Inject private SkillsService sService;
+	@Inject private PortfolioService pService;
 	
 	/* 메인 인덱스 페이지 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) throws Exception {
+		List<SkillsVO> skills = sService.SkillsListGroupNew();
+		List<Map<String, Object>> array = new ArrayList<Map<String,Object>>();
+		for (SkillsVO skill : skills) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("nickName", skill.getNickName());
+			map.put("category", skill.getCategory());
+			map.put("regDate", skill.getRegDate());
+			map.put("skills", sService.SkillsSubCategoryList(map));
+			array.add(map);
+		}
+		
+		model.addAttribute("skillsList", array);
+		model.addAttribute("portfolioList", pService.PortfolioListNew());
+		model.addAttribute("boardList", bService.BoardListNew());
 		return "index";
 	}
 	

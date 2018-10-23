@@ -29,7 +29,6 @@
 	<div class="container">
 		<!-- table line start -->
 		<div class="row">
-		
 			<!-- list mobile line -->
 			<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
 				
@@ -40,7 +39,6 @@
 							<c:forEach items="${ board }" var="board">
 								<tr>
 									<td>
-									
 										<a href="/board/view/${ board.bNumber }${pageMaker.makeQuery(pageMaker.cri.page)}">
 											<div>
 												${ board.title }
@@ -132,33 +130,30 @@
 				<ul class="pagination">
 					<c:if test="${ pageMaker.prev }">
 						<li>
-							<a href="list${ pageMaker.makeQuery(pageMaker.startPage - 1) }">&lt;</a>
+							<a href="${ pageMaker.makeQueryBoard(pageMaker.startPage - 1) }">&lt;</a>
 						</li>
 					</c:if>
-					
 					<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
 						 <c:if test="${ pageMaker.cri.page == idx }">
 						 	<li class="active">
-						 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+						 		<a href="${ pageMaker.makeQueryBoard( idx ) }">${ idx }</a>
 						 	</li>
 						 </c:if>
 						 <c:if test="${ pageMaker.cri.page != idx }">
 						 	<li>
-						 		<a href="list${ pageMaker.makeQuery( idx ) }">${ idx }</a>
+						 		<a href="${ pageMaker.makeQueryBoard( idx ) }">${ idx }</a>
 						 	</li>
 						 </c:if>
 					</c:forEach>
-					
 					<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
 						<li>
-							<a href="list${ pageMaker.makeQuery(pageMaker.endPage + 1) }">&gt;</a>
+							<a href="${ pageMaker.makeQueryBoard(pageMaker.endPage + 1) }">&gt;</a>
 						</li>
 					</c:if>
 				</ul>
 			</div>
 		</div>
 		<!-- table line end -->
-		
 	</div>
 
 	<jsp:include page="../common/footer.jsp" />

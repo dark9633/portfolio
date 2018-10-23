@@ -69,4 +69,9 @@ public class SkillsServiceImpl implements SkillsService{
 		return dao.SkillsDelete(skNumber);
 	}
 
+	@Override
+	public List<SkillsVO> SkillsListGroupNew() throws Exception {
+		return dao.SkillsListGroupNew();
+	}
+
 }

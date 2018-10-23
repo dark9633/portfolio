@@ -142,4 +142,15 @@ public class PageMaker {
 		return uriComponents.toString();
 	}
 	
+	/* board UriComponents */
+	public String makeQueryBoard(int page) throws Exception{
+		UriComponents uriComponents = null;
+		uriComponents = UriComponentsBuilder
+				.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum", cri.getPerPageNum())
+				.build();
+		return uriComponents.toString();
+	}
+	
 }

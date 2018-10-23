@@ -25,5 +25,11 @@ public interface PortfolioDAO {
 
 	/* 포트폴리오 삭제 */
 	public int PortfolioDelete(Integer pfNumber) throws Exception;
+
+	/* 포트폴리오 뷰 카운트 업데이트 */
+	public void PortfolioViewCountUpdate(Integer pfNumber) throws Exception;
+	
+	/* 포트폴리오 리스트 메인출력용 */
+	public List<PortfolioVO> PortfolioListNew() throws Exception;
 	
 }

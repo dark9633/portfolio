@@ -38,6 +38,7 @@ import com.portfolio.utils.UploadFileUtils;
  * 1. 검색기능 추가
  * 2. 이미지 변경 삭제 발생시 실제 이미지 삭제 추가
  * 3. 상세한 검증 추가
+ * 4. 게시글 삭제시 댓글도 함께 삭제
  * */
 @Controller
 @RequestMapping("/board*")
@@ -53,6 +54,7 @@ public class BoardController {
 	@RequestMapping(value = "/list/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String list(@PathVariable("category") String category, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		cri.setCategory(category);
+		cri.setPerPageNum(15);
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);

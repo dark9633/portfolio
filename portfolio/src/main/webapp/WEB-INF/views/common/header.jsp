@@ -11,11 +11,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">HOME</a>
+				<a class="navbar-brand" href="/" style="font-style: inherit;">PORTFOLIO</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="/info">개인이력</a></li>
+					<li><a href="/info">개발자</a></li>
 					<li><a href="/portfolio/list">포트폴리오</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

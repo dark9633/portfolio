@@ -50,4 +50,14 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 		return session.delete(namespace + ".PortfolioDelete", pfNumber);
 	}
 
+	@Override
+	public void PortfolioViewCountUpdate(Integer pfNumber) throws Exception {
+		session.update(namespace + ".PortfolioViewCountUpdate", pfNumber);
+	}
+
+	@Override
+	public List<PortfolioVO> PortfolioListNew() throws Exception {
+		return session.selectList(namespace + ".PortfolioListNew");
+	}
+
 }

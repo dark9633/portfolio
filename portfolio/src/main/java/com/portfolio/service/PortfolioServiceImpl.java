@@ -34,6 +34,7 @@ public class PortfolioServiceImpl implements PortfolioService{
 
 	@Override
 	public PortfolioVO PortfolioView(Integer pfNumber) throws Exception {
+		dao.PortfolioViewCountUpdate(pfNumber);
 		return dao.PortfolioView(pfNumber);
 	}
 
@@ -45,6 +46,11 @@ public class PortfolioServiceImpl implements PortfolioService{
 	@Override
 	public int PortfolioDelete(Integer pfNumber) throws Exception {
 		return dao.PortfolioDelete(pfNumber);
+	}
+
+	@Override
+	public List<PortfolioVO> PortfolioListNew() throws Exception {
+		return dao.PortfolioListNew();
 	}
 	
 }

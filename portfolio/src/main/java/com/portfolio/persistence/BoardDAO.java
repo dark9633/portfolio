@@ -32,4 +32,7 @@ public interface BoardDAO {
 	/* 게시글 댓글 업데이트 */
 	public void BoardReCountUpdate(BoardVO vo) throws Exception;
 	
+	/* 게시글 리스트 메인출력용*/
+	public List<BoardVO> BoardListNew() throws Exception;
+	
 }

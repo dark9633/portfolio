@@ -42,4 +42,16 @@
 		DELETE FROM portfolio WHERE pfNumber=#{ pfNumber }
 	</delete>
 	
+	<update id="PortfolioViewCountUpdate">
+		UPDATE portfolio
+		SET
+			viewCount=viewCount+1
+		WHERE 
+			pfNumber=#{pfNumber}
+	</update>
+	
+	<select id="PortfolioListNew" resultType="PortfolioVO">
+		select * from portfolio order by regDate desc limit 12
+	</select>
+	
 </mapper>

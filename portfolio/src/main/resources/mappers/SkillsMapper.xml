@@ -86,6 +86,13 @@
 			skNumber=#{skNumber}
 	</update>
 	
+	<select id="SkillsListGroupNew" resultType="SkillsVO">
+		select * from skills 
+		group by nickName, category 
+		order by regDate desc
+		limit 6
+	</select>
+	
 	<sql id="sub">
 		<if test="subCategory != null">
 			<if test="subCategory != ''.toString()">
