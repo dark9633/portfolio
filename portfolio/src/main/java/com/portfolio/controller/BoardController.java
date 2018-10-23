@@ -32,9 +32,12 @@ import com.portfolio.utils.UploadFileUtils;
 
 /*
  * 게시판 컨트롤러
- * 2018/10/20 마지막으로 게시판 기능 추가 마무리, 추후 필요 기능이 생길 경우 하단에 기재
+ * 2018/10/20 마지막으로 게시판 기능 추가 마무리, 
+ * 추후 필요 기능이 생길 경우 하단에 기재
  * 
  * 1. 검색기능 추가
+ * 2. 이미지 변경 삭제 발생시 실제 이미지 삭제 추가
+ * 3. 상세한 검증 추가
  * */
 @Controller
 @RequestMapping("/board*")
@@ -44,7 +47,7 @@ public class BoardController {
 	
 	@Resource(name = "uploadPath") private String uploadPath;
 	
-	@Inject private BoardService bService;
+	@Inject private BoardService service;
 	
 	/* 게시판 리스트 페이지 */
 	@RequestMapping(value = "/list/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
@@ -53,9 +56,9 @@ public class BoardController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(bService.BoardListCount(cri));
+		pageMaker.setTotalCount(service.BoardListCount(cri));
 		
-		model.addAttribute("board", bService.BoardList(cri));
+		model.addAttribute("board", service.BoardList(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		
 		return "board/board_list";
@@ -64,7 +67,7 @@ public class BoardController {
 	/* 게시판 상세 페이지 */
 	@RequestMapping(value = "/view/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String view(@PathVariable("bNumber") Integer bNumber, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-		model.addAttribute("view", bService.BoardView(bNumber));
+		model.addAttribute("view", service.BoardView(bNumber));
 		return "board/board_view";
 	}
 	
@@ -83,7 +86,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("img");
 		vo.setNickName(((MemberVO) session.getAttribute("member")).getNickName());
-		int succ = bService.BoardRegister(vo);
+		int succ = service.BoardRegister(vo);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
 		}else{
@@ -103,7 +106,7 @@ public class BoardController {
 			return "redirect:/";
 		}
 
-		BoardVO board = bService.BoardView(bNumber);
+		BoardVO board = service.BoardView(bNumber);
 		
 		/* 작성자와 게시물의 닉네임이 다른경우 메인으로 */
 		if(!board.getNickName().equals(member.getNickName())) {
@@ -114,7 +117,7 @@ public class BoardController {
 		cri.setCategory(category);
 		
 		model.addAttribute("cri", cri);
-		model.addAttribute("view", bService.BoardView(bNumber));
+		model.addAttribute("view", board);
 		
 		return "board/board_modify";
 	}
@@ -136,7 +139,7 @@ public class BoardController {
 			return "redirect:/";
 		}
 		
-		int succ = bService.BoardModify(vo);
+		int succ = service.BoardModify(vo);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
 		}else{
@@ -155,14 +158,14 @@ public class BoardController {
 			return "redirect:/";
 		}
 
-		BoardVO board = bService.BoardView(bNumber);
+		BoardVO board = service.BoardView(bNumber);
 		
 		/* 작성자와 게시물의 닉네임이 다른경우 메인으로 */
 		if(!board.getNickName().equals(member.getNickName())) {
 			return "redirect:/";
 		}
 		
-		int succ = bService.BoardDelete(bNumber);
+		int succ = service.BoardDelete(bNumber);
 		if(succ > 0){
 			attr.addFlashAttribute("result", "succ");
 		}else{

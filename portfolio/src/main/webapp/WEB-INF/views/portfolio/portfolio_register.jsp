@@ -50,14 +50,22 @@
 						</div>
 					</div>
 					<div class="form-group text-right">
-						<textarea id="simpleContent" name="simpleContent" placeholder="간단한 포트폴리오 셜명을 작성해주세요." class="form-control"></textarea>
+						<textarea id="simpleContent" name="simpleContent" placeholder="간단한 포트폴리오 셜명을 작성해주세요." class="form-control" style="resize: vertical;"></textarea>
 					</div>
 					<div class="form-group text-right">
 						<textarea id="editor" name="content"></textarea>
 					</div>
-					<div class="form-group text-right">
-						<input type="file" id="file" name="file" class="btn btn-default" value="이미지">
+					
+					<div class="form-group">
+						<div class="input-group text-right">
+							<input type="text" class="form-control" id="file_name" disabled="disabled">
+							<div class="input-group-btn">
+								<input type="button" class="btn btn-default" id="file_btn" value="이미지등록">
+							</div>
+							<input type="file" id="file" name="file" class="btn btn-default" style="display: none;">
+						</div>
 					</div>
+					
 					<div class="form-group row">
 						<div class="col-xs-12 text-right">
 							<input type="hidden" id="nickName" name="nickName" value="${ member.nickName }">
@@ -73,16 +81,27 @@
 	</div>
 	
 	<script type="text/javascript">
+		//메인 이미지 파일 오픈 이벤트
+		$(document).on("click", "#file_btn", function(e){
+			e.preventDefault();
+			$("#file").click();
+		});
+		
+		//메인 이미지 등록 이벤트
+		$(document).on("change","#file",function(){
+			$("#file_name").val($(this).val());
+		});
+		
 		//ckeditor load
 		editor = CKEDITOR.replace("editor", {
 			width:'100%',
-			height:'450px',
+			height:'350px',
 		});
 	
 		//버튼 이벤트
 		editor.addCommand("mySimpleCommand", {
 		    exec: function(edt) {
-		    	$("#file").click();
+		    	$("#image_file").click();
 		    }
 		});
 	

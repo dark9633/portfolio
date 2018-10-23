@@ -140,7 +140,7 @@
 			});
 		};
 		
-		//게시글 등록
+		//스킬 등록
 		$(document).on("click", "#submitBtn", function(e){
 			e.preventDefault();
 			var title = $("#title");

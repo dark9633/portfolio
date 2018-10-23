@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html>
@@ -81,7 +82,7 @@
 						<c:forEach items="${ portfolio }" var="pf">
 							<c:if test="${ pf.image != '' }">
 								<div class="image-div">
-									<a href="#">
+									<a href="/portfolio/view/${ pf.pfNumber }">
 										<div class="over-div">
 											<p>
 												<b>${ pf.title }</b><br><br>

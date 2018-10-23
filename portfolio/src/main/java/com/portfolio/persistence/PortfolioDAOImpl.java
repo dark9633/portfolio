@@ -35,4 +35,19 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 		return session.insert(namespace + ".PortfolioRegister", vo);
 	}
 
+	@Override
+	public PortfolioVO PortfolioView(Integer pfNumber) throws Exception {
+		return session.selectOne(namespace + ".PortfolioView", pfNumber);
+	}
+
+	@Override
+	public int PortfolioModify(PortfolioVO vo) throws Exception {
+		return session.update(namespace + ".PortfolioModify", vo);
+	}
+
+	@Override
+	public int PortfolioDelete(Integer pfNumber) throws Exception {
+		return session.delete(namespace + ".PortfolioDelete", pfNumber);
+	}
+
 }

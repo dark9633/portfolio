@@ -43,6 +43,14 @@
 		</interceptor>
 	</interceptors>
 	
+	<beans:bean id="LogoutCheckInterceptor" class="com.portfolio.interceptor.LogoutCheckInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/register"/>
+			<beans:ref bean="LogoutCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.portfolio.controller" />
 	
 </beans:beans>

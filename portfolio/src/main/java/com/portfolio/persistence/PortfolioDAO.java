@@ -17,4 +17,13 @@ public interface PortfolioDAO {
 	/* 포트폴리오 등록 */
 	public int PortfolioRegister(PortfolioVO vo) throws Exception;
 	
+	/* 포트폴리오 상세 */
+	public PortfolioVO PortfolioView(Integer pfNumber) throws Exception;
+	
+	/* 포트폴리오 수정 */
+	public int PortfolioModify(PortfolioVO vo) throws Exception;
+
+	/* 포트폴리오 삭제 */
+	public int PortfolioDelete(Integer pfNumber) throws Exception;
+	
 }

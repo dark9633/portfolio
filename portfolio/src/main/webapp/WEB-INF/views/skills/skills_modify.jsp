@@ -76,6 +76,7 @@
 			var category = "${ view.category }";
 			$("#category").val(category).prop("selected", true);
 		});
+		
 		//ckeditor load
 		editor = CKEDITOR.replace("editor", {
 			width:'100%',
@@ -145,7 +146,7 @@
 			});
 		};
 		
-		//게시글 등록
+		//스킬 수정
 		$(document).on("click", "#submitBtn", function(e){
 			e.preventDefault();
 			var title = $("#title");

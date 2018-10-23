@@ -21,4 +21,25 @@
 			(#{ nickName }, #{ category }, #{ title }, #{ simpleContent }, #{ content }, #{ image })
 	</insert>
 	
+	<select id="PortfolioView" resultType="PortfolioVO">
+		select * from portfolio where pfNumber = #{ pfNumber }
+	</select>
+	
+	<update id="PortfolioModify">
+		UPDATE portfolio
+		SET
+			category=#{category},
+			title=#{title},
+			simpleContent=#{simpleContent},
+			content=#{content},
+			image=#{image},
+			regDate=NOW()
+		WHERE 
+			pfNumber=#{pfNumber}
+	</update>
+	
+	<delete id="PortfolioDelete">
+		DELETE FROM portfolio WHERE pfNumber=#{ pfNumber }
+	</delete>
+	
 </mapper>

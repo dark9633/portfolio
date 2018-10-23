@@ -31,5 +31,20 @@ public class PortfolioServiceImpl implements PortfolioService{
 	public int PortfolioRegister(PortfolioVO vo) throws Exception {
 		return dao.PortfolioRegister(vo);
 	}
+
+	@Override
+	public PortfolioVO PortfolioView(Integer pfNumber) throws Exception {
+		return dao.PortfolioView(pfNumber);
+	}
+
+	@Override
+	public int PortfolioModify(PortfolioVO vo) throws Exception {
+		return dao.PortfolioModify(vo);
+	}
+
+	@Override
+	public int PortfolioDelete(Integer pfNumber) throws Exception {
+		return dao.PortfolioDelete(pfNumber);
+	}
 	
 }
