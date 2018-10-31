@@ -41,7 +41,7 @@ $(document).on("change","#image_file",function(){
 	}
 	
 	$.ajax({
-        url: "/portfolio/imageUpload",
+        url: "/portfolios/imageUpload",
         enctype: "multipart/form-data",
         data: formData,
         dataType: "text",
@@ -69,7 +69,7 @@ $(document).on("change","#image_file",function(){
 window.onbeforeunload = function (e) {
 	$.ajax({
 		type : 'get',
-		url : '/portfolio/imageDelete',
+		url : '/portfolios/imageDelete',
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTP-Method-Override" : "GET"

@@ -29,8 +29,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				
-				<div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 body-nav">
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 					<div class="list-group">
 						<c:forEach items="${ subCategory }" var="sc">
 							<c:choose>
@@ -44,13 +43,37 @@
 						</c:forEach>
 					</div>
 	            </div>
-	            
-	            <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9 body-content">
-	            
+	            <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+	            	<div class="row">
+		            	<div class="col-sm-12 col-md-12 col-lg-12">
+							<table class="table">
+								<tbody class="list">
+									<c:forEach items="${ skills }" var="skill">
+										<tr>
+											<td>
+												<a href="/skills/view/${ skill.skNumber }">
+													<div>
+														${ skill.title }
+													</div>
+													<div style="font-size: 10px;">
+														${ skill.nickName } | 
+														<fmt:formatDate pattern="MM-dd" value="${ skill.regDate }"/> | 
+														조회 : ${skill.viewCount }
+													</div>
+												</a>
+												
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+	            	</div>
+				</div>
+	            <div class="hidden-xs col-sm-8 col-md-9 col-lg-9">
 	            	<div class="row">
 	            		<div class="col-sm-12 col-md-12 col-lg-12">
 							<table class="table table-hover">
-								<!-- main list header line -->
 								<thead class="head">
 									<tr>
 										<th width="62%">제목</th>
@@ -59,7 +82,6 @@
 										<th width="10%">조회</th>
 									</tr>
 								</thead>
-								
 								<!-- main list line -->
 								<tbody class="list">
 									<c:forEach items="${ skills }" var="skill">
@@ -84,7 +106,6 @@
 								</tbody>
 							</table>
 						</div>
-						
 						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 							<ul class="pagination">
 								<li>
@@ -97,7 +118,6 @@
 								</li>
 							</ul>
 						</div>
-						
 						<div class="col-sm-8 col-md-8 col-lg-8 text-right">
 							<ul class="pagination">
 								<c:if test="${ pageMaker.prev }">
@@ -105,7 +125,6 @@
 										<a href="${ cri.subCategory }${ pageMaker.makeQuerySkills(pageMaker.startPage - 1) }">&lt;</a>
 									</li>
 								</c:if>
-								
 								<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
 									 <c:if test="${ pageMaker.cri.page == idx }">
 									 	<li class="active">
@@ -118,7 +137,6 @@
 									 	</li>
 									 </c:if>
 								</c:forEach>
-								
 								<c:if test="${ pageMaker.next && pageMaker.endPage > 0 }">
 									<li>
 										<a href="${ cri.subCategory }${ pageMaker.makeQuerySkills(pageMaker.endPage + 1) }">&gt;</a>
@@ -128,7 +146,6 @@
 						</div>
 	            	</div>
 	            </div>
-	            
 			</div>
 		</div>
 	</section>

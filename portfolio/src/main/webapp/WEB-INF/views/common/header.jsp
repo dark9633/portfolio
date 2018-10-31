@@ -36,7 +36,7 @@
 							서비스<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/board/list/질문">질문사항</a></li>
+							<li><a href="/board/list/질문">질문게시판</a></li>
 							<li><a href="/board/list/미해결">미해결문제</a></li>
 						</ul>
 					</li>

@@ -27,40 +27,35 @@
 	<jsp:include page="../common/header.jsp" />
 
 	<div class="container">
-		<!-- table line start -->
 		<div class="row">
-			<!-- list mobile line -->
 			<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-				
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<table class="table">
-						<tbody class="list">
-						
-							<c:forEach items="${ board }" var="board">
-								<tr>
-									<td>
-										<a href="/board/view/${ board.bNumber }${pageMaker.makeQuery(pageMaker.cri.page)}">
-											<div>
-												${ board.title }
-											</div>
-											<div style="font-size: 10px;">
-												${ board.nickName } | 
-												<fmt:formatDate pattern="MM-dd" value="${ board.regDate }"/> | 
-												조회 : ${board.viewCount } | 
-												댓글 : ${board.reCount }
-											</div>
-										</a>
-										
-									</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<table class="table">
+							<tbody class="list">
+								<c:forEach items="${ board }" var="board">
+									<tr>
+										<td>
+											<a href="/board/view/${ board.bNumber }${pageMaker.makeQuery(pageMaker.cri.page)}">
+												<div>
+													${ board.title }
+												</div>
+												<div style="font-size: 10px;">
+													${ board.nickName } | 
+													<fmt:formatDate pattern="MM-dd" value="${ board.regDate }"/> | 
+													조회 : ${board.viewCount } | 
+													댓글 : ${board.reCount }
+												</div>
+											</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-			<!-- list mobile line -->
 		
-			<!-- list pc and tablet line -->
 			<div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12">
@@ -77,7 +72,6 @@
 								</tr>
 							</thead>
 							
-							<!-- main list line -->
 							<tbody class="list">
 							
 								<c:set value="${ ( pageMaker.totalCount - ( (pageMaker.cri.page - 1) * pageMaker.cri.perPageNum ) )   + 1 }" var="cnt"/>
@@ -153,7 +147,6 @@
 				</ul>
 			</div>
 		</div>
-		<!-- table line end -->
 	</div>
 
 	<jsp:include page="../common/footer.jsp" />
