@@ -27,6 +27,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Utils {
 	
+	//REST API KEY 
+	public static String kakaoApiKey = "{kakaoApiKey}";
+	
+	public static JSONObject getLocation(String address) throws Exception{
+		address = address.replaceAll(" ", "");
+		
+		String localSearchUrl = "https://dapi.kakao.com/v2/local/search/address.json?query="+URLEncoder.encode(address, "UTF-8");
+		JSONObject json = new JSONObject(Utils.getHtml(localSearchUrl, "KakaoAK "+kakaoApiKey));
+		
+		JSONObject returnJson = new JSONObject();
+		try {
+			if(json.getJSONArray("documents").length() == 0){
+				json = new JSONObject(Utils.getHtml(localSearchUrl, "KakaoAK "+kakaoApiKey));
+			}
+			returnJson = json.getJSONArray("documents").getJSONObject(0).getJSONObject("address");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnJson;
+	}
+	
 	/* 한글 키워드 분석 사이트에서 쿼리를 날린다. */
 	public static JSONObject koreanTextPharase(String text) throws Exception{
 		String jsonString = Jsoup.connect("https://open-korean-text.herokuapp.com/extractPhrases?text="+URLEncoder.encode(text, "UTF-8"))

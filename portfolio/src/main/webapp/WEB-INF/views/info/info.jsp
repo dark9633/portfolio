@@ -276,13 +276,11 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 
 			<!-- Sidebar Widgets Column -->
 			<div class="col-lg-4">
 				<ul class="timeline">
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -302,7 +300,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -322,7 +319,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -342,7 +338,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -363,7 +358,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -384,7 +378,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -405,7 +398,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -426,7 +418,6 @@
 							</div>
 						</div>
 					</li>
-					
 					<li>
 						<div class="timeline-badge">
 							<i class="glyphicon glyphicon-check"></i>
@@ -443,12 +434,35 @@
 							</div>
 						</div>
 					</li>
-					
 				</ul>
 			</div>
-
 		</div>
 	</div>
+	
+	<div class="container-fluid" id="map" style="margin-top: 30px; height: 350px;"></div>
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c64f9d6828ce64dccdfca9c145cb561"></script>
+	<script type="text/javascript">
+		var address = "광주 광역시 북구 두암동 859-22";
+		$(function(){
+			$.getJSON("/daum/location/" + address, function(data){
+				getMap(data.x, data.y, 'map');
+			});
+		});
+		function getMap(x, y, map){
+			var mapContainer = document.getElementById(map), // 지도를 표시할 div 
+			mapOption = {
+				center : new daum.maps.LatLng(y,x), // 지도의 중심좌표
+				level : 3
+			};
+			var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			var markerPosition = new daum.maps.LatLng(y, x);
+			var marker = new daum.maps.Marker({
+				position : markerPosition
+			});
+			marker.setMap(map);
+		}
+	</script>
 
 	<jsp:include page="../common/footer.jsp" />
 </body>
