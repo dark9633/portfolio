@@ -39,7 +39,9 @@ import com.portfolio.utils.UploadFileUtils;
  * 2018/10/22 마지막으로 스킬 기능 추가 마무리.
  * 추가기능이 필요할 경우 하단에 기재 업데이트 후 삭제 필요
  * 
- * 1. 검색기능 추가
+ * 스킬리스트 통합
+ * 검색기능 추가
+ * 
  * 2. 회원 단위 리스트 추가
  * 3. 이미지 변경 삭제 발생시 실제 이미지 삭제 추가
  * 4. 상세한 검증 추가
@@ -80,8 +82,11 @@ public class SkillsController {
 		return "skills/skills_list";
 	}
 	
-	/* 스킬 리스트 카테고리 페이지 */
-	@RequestMapping(value = "/list/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
+	/* 
+	 * 스킬 리스트 카테고리 페이지 
+	 * 카테고리를 cri에 담아서 통합 사용
+	 * */
+	/*@RequestMapping(value = "/list/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String listCategory(@PathVariable("category") String category, Model model, Criteria cri) throws Exception {
 		cri.setCategory(category);
 		PageMaker pageMaker = new PageMaker();
@@ -102,7 +107,7 @@ public class SkillsController {
 		model.addAttribute("list", array);
 		model.addAttribute("pageMaker", pageMaker);
 		return "skills/skills_list";
-	}
+	}*/
 	
 	/* 스킬 리스트 회원 단위 카테고리 페이지 */
 	@RequestMapping(value = "/list/{nickName}/{category}", method = {RequestMethod.GET, RequestMethod.HEAD})

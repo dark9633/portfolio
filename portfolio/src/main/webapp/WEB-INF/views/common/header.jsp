@@ -23,12 +23,12 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/skills/list">전체</a></li>
-							<li><a href="/skills/list/linux">리눅스</a></li>
-							<li><a href="/skills/list/web">웹서버</a></li>
-							<li><a href="/skills/list/bootstrap">부트스트랩</a></li>
-							<li><a href="/skills/list/android">안드로이드</a></li>
-							<li><a href="/skills/list/database">데이터베이스</a></li>
-							<li><a href="/skills/list/api">API</a></li>
+							<li><a href="/skills/list?category=linux">리눅스</a></li>
+							<li><a href="/skills/list?category=web">웹서버</a></li>
+							<li><a href="/skills/list?category=bootstrap">부트스트랩</a></li>
+							<li><a href="/skills/list?category=android">안드로이드</a></li>
+							<li><a href="/skills/list?category=database">데이터베이스</a></li>
+							<li><a href="/skills/list?category=api">API</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -42,6 +42,14 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<li style="display: none;" id="header-li">
+						<form class="navbar-form" onsubmit="return false;">
+							<div class="form-group">
+								<input type="text" id="header-search" class="form-control" placeholder="Search">
+							</div>
+						</form>
+					</li>
+				
 					<li class="dropdown">
 					<c:if test="${ member == null }">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 

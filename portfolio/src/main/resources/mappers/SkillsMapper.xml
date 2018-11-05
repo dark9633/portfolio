@@ -20,10 +20,24 @@
 	</select>
 	
 	<select id="SkillsListGroup" resultType="SkillsVO">
-		select * from skills 
+		select * from skills
+		where 
+			skNumber >= 0
 		<if test="category != null">
 			<if test="category != ''.toString()">
-				where category = #{ category }
+				and category = #{ category }
+			</if>
+		</if>
+		<if test="search != null">
+			<if test="search != ''.toString()">
+				and 
+					(
+						nickName like concat('%', #{ search }, '%') or
+						category like concat('%', #{ search }, '%') or
+						subCategory like concat('%', #{ search }, '%') or
+						title like concat('%', #{ search }, '%') or
+						content like concat('%', #{ search }, '%')
+					)
 			</if>
 		</if>
 		group by nickName, category 
@@ -34,9 +48,23 @@
 	<select id="SkillsListGroupCount" resultType="int">
 		select count(c.subCategory) as cnt from (
 			select * from skills 
+			where 
+				skNumber >= 0
 			<if test="category != null">
 				<if test="category != ''.toString()">
-					where category = #{ category }
+					and category = #{ category }
+				</if>
+			</if>
+			<if test="search != null">
+				<if test="search != ''.toString()">
+					and 
+						(
+							nickName like concat('%', #{ search }, '%') or
+							category like concat('%', #{ search }, '%') or
+							subCategory like concat('%', #{ search }, '%') or
+							title like concat('%', #{ search }, '%') or
+							content like concat('%', #{ search }, '%')
+						)
 				</if>
 			</if>
 			group by nickName, category

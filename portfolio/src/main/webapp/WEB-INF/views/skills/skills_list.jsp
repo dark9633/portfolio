@@ -31,7 +31,7 @@
 	<div class="container">
 	
 		<div class="row">
-			
+		
 			<c:forEach items="${ list }" var="skill">
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 	                <div class="card">
@@ -110,6 +110,28 @@
 			
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$(function(){ $("#header-li").css("display", ""); });
+		$(document).on("keyup", "#header-search", function(e){
+			if(e.keyCode == 13){
+				location.href = "/skills/list?search="+$(this).val();
+			}
+		});
+		$(function(){
+			var param = getUrlParams();
+			$.each(param, function(index, entry){
+				if(index == 'search'){
+					$("#header-search").val(decodeURI(entry));
+				}
+			});
+		});
+		function getUrlParams() {
+			var params = {};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+			return params;
+		}
+	</script>
 
 	<jsp:include page="../common/footer.jsp" />
 </body>
