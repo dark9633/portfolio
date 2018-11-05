@@ -88,6 +88,7 @@
 								</label>
 							</div>
 							<input class="btn btn-lg btn-default btn-block" type="submit" id="login-submit" value="Login">
+							<a class="btn btn-lg btn-default btn-block" href="/naver/token">Naver Login</a>
 						</fieldset>
 					</form>
 				</div>

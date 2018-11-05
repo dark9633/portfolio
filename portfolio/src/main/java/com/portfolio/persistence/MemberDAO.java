@@ -17,4 +17,10 @@ public interface MemberDAO {
 	/* 회원 로그인 */
 	public MemberVO MemberLogin(MemberVO vo) throws Exception;
 	
+	/* 회원 로그인 네이버 */
+	public MemberVO MemberLoginNaver(MemberVO vo) throws Exception;
+	
+	/* 회원 가입 네이버 */
+	public int MemberRegisterNaver(MemberVO vo) throws Exception;
+	
 }

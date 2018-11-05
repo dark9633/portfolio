@@ -24,4 +24,15 @@
 		select memNumber, nickName, email, regDate from member where email = #{ email } and pwd = #{ pwd }
 	</select>
 	
+	<select id="MemberLoginNaver" resultType="MemberVO">
+		select memNumber, nickName, email, regDate from member where naverId = #{ naverId }
+	</select>
+	
+	<insert id="MemberRegisterNaver">
+		INSERT INTO member
+			(naverId, nickName, email, pwd)
+		VALUES 
+			(#{ naverId }, #{ nickName }, #{ email }, '')
+	</insert>
+	
 </mapper>

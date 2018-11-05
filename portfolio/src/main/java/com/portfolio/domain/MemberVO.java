@@ -14,6 +14,8 @@ public class MemberVO implements Serializable {
 	private String pwd;
 	private Date regDate;
 	
+	private String naverId;
+	
 	public Integer getMemNumber() {
 		return memNumber;
 	}
@@ -43,6 +45,12 @@ public class MemberVO implements Serializable {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	public String getNaverId() {
+		return naverId;
+	}
+	public void setNaverId(String naverId) {
+		this.naverId = naverId;
 	}
 	
 }

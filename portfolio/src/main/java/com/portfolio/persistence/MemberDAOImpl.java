@@ -37,4 +37,14 @@ public class MemberDAOImpl implements MemberDAO{
 		return session.selectOne(namespace + ".MemberLogin", vo);
 	}
 
+	@Override
+	public MemberVO MemberLoginNaver(MemberVO vo) throws Exception {
+		return session.selectOne(namespace + ".MemberLoginNaver", vo);
+	}
+
+	@Override
+	public int MemberRegisterNaver(MemberVO vo) throws Exception {
+		return session.insert(namespace + ".MemberRegisterNaver", vo);
+	}
+
 }
