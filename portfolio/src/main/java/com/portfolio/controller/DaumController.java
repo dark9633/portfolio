@@ -13,10 +13,9 @@ import com.portfolio.utils.Utils;
 
 
 /*
- * 네이버 로그인 컨트롤러
- * 네아로 설정은 추후 기술개발쪽에 추가 할 예정(http://portfolio.freeserver.zone/)
- * 필수적으로 닉네임과 이메일을 받고 있음
- * 로그인모달에서 회원가입 및 로그인까지 처리한 상태 <- 이건 취향에 따라 회원가입에 버튼 추가하고 네아로 설정 수정해야함
+ * 다음 컨트롤러
+ * 지도 API 추가
+ * 지도 API 사용법에 관해서는 기술개발쪽에 추가 할 예정(http://portfolio.freeserver.zone/)
  * */
 @Controller
 @RequestMapping("/daum*")
