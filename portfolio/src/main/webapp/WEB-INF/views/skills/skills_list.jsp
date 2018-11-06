@@ -11,19 +11,20 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+	<meta name="author" content="freeserver.zone">
+	<meta name="keywords" content="웹개발자 스킬리스트 개발기술 자바개발자 서버개발자 mysql 데이터베이스">
+	<meta name="description" content="웹개발자 스킬 향상을 위한 스킬리스트입니다.">
 	
-	<meta property="og:title" content="" />
 	<meta property="fb:app_id" content=""/>
-	<meta property="og:type" content="" />
-	<meta property="og:description" content="">
-	<meta property="og:image" content=""/>
-	<meta property="og:site_name" content=""/> 
-	<meta property="og:url" content=""/>
 	
-	<title>웹 개발자 포트폴리오 | 스킬 리스트</title>
+	<meta property="og:title" content="웹 개발자 스킬 리스트" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="웹개발자 스킬 향상을 위한 스킬리스트입니다.">
+	<meta property="og:image" content="http://portfolio.freeserver.zone/resources/img/001.jpg"/>
+	<meta property="og:site_name" content="포트폴리오"/> 
+	<meta property="og:url" content="http://portfolio.freeserver.zone/skills/list"/>
+	
+	<title>웹 개발자 스킬 리스트</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />

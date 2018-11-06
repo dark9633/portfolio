@@ -133,7 +133,13 @@ public class SkillsController {
 	/* 스킬 상세 페이지 */
 	@RequestMapping(value = "/view/{skNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String view(@PathVariable("skNumber") Integer skNumber, Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
-		model.addAttribute("view", service.SkillsView(skNumber));
+		SkillsVO skills = service.SkillsView(skNumber);
+		model.addAttribute("view", skills);
+		String description = skills.getContent().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+		if(description.length() >= 100){
+			description = description.substring(0, 99);
+		}
+		model.addAttribute("description", description);
 		return "skills/skills_view";
 	}
 	

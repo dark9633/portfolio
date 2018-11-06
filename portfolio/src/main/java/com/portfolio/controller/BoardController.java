@@ -69,7 +69,13 @@ public class BoardController {
 	/* 게시판 상세 페이지 */
 	@RequestMapping(value = "/view/{bNumber}", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public String view(@PathVariable("bNumber") Integer bNumber, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-		model.addAttribute("view", service.BoardView(bNumber));
+		BoardVO board = service.BoardView(bNumber);
+		model.addAttribute("view", board);
+		String description = board.getContent().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+		if(description.length() >= 100){
+			description = description.substring(0, 99);
+		}
+		model.addAttribute("description", description);
 		return "board/board_view";
 	}
 	

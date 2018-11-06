@@ -9,19 +9,20 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+	<meta name="author" content="freeserver.zone">
+	<meta name="keywords" content="웹개발자 스킬트리 ${ pageMaker.cri.category } ${ pageMaker.cri.nickName }">
+	<meta name="description" content="${ pageMaker.cri.nickName } 님의 스킬트리 카테고리 : ${ pageMaker.cri.category } 입니다.">
 	
-	<meta property="og:title" content="" />
 	<meta property="fb:app_id" content=""/>
-	<meta property="og:type" content="" />
-	<meta property="og:description" content="">
-	<meta property="og:image" content=""/>
-	<meta property="og:site_name" content=""/> 
-	<meta property="og:url" content=""/>
 	
-	<title>웹 개발자 포트폴리오 | 스킬 리스트 카테고리</title>
+	<meta property="og:title" content="웹 개발자 스킬트리 | ${ pageMaker.cri.category }" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="${ pageMaker.cri.nickName } 님의 스킬트리 카테고리 : ${ pageMaker.cri.category } 입니다.">
+	<meta property="og:image" content="http://portfolio.freeserver.zone/resources/img/001.jpg"/>
+	<meta property="og:site_name" content="포트폴리오"/> 
+	<meta property="og:url" content="http://portfolio.freeserver.zone/skills/list/${ pageMaker.cri.nickName }/${ pageMaker.cri.category }"/>
+	
+	<title>웹 개발자 스킬트리 | ${ pageMaker.cri.category }</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />

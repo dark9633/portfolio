@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -8,19 +7,20 @@
 <jsp:include page="../common/common.jsp" />
 <link rel="stylesheet" href="/resources/css/info/info.css">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="author" content="">
-<meta name="keywords" content="">
-<meta name="description" content="">
-
-<meta property="og:title" content="" />
-<meta property="fb:app_id" content="" />
-<meta property="og:type" content="" />
-<meta property="og:description" content="">
-<meta property="og:image" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:url" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="author" content="freeserver.zone">
+	<meta name="keywords" content="개발자 developer 자바개발자 웹개발자 포트폴리오 개발자정보">
+	<meta name="description" content="포트폴리오 개발자 정보, 개발히스토리 및 개발에 관해...">
+	
+	<meta property="fb:app_id" content="" />
+	
+	<meta property="og:title" content="웹 개발자 포트폴리오 | 인포" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="포트폴리오 개발자 정보, 개발히스토리 및 개발에 관해...">
+	<meta property="og:image" content="http://portfolio.freeserver.zone/resources/img/001.jpg"/>
+	<meta property="og:site_name" content="포트폴리오"/> 
+	<meta property="og:url" content="http://portfolio.freeserver.zone/info" />
 
 <title>웹 개발자 포트폴리오 | 인포</title>
 </head>

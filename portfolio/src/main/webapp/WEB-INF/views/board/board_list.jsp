@@ -9,17 +9,18 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+	<meta name="author" content="freeserver.zone">
+	<meta name="keywords" content="개발자 게시판, ${pageMaker.cri.category}게시판, 개발에 관하여, 웹개발관련문의">
+	<meta name="description" content="개발자 게시판입니다. 다양한 게시물을 등록해주세요.">
 	
-	<meta property="og:title" content="" />
 	<meta property="fb:app_id" content=""/>
-	<meta property="og:type" content="" />
-	<meta property="og:description" content="">
-	<meta property="og:image" content=""/>
-	<meta property="og:site_name" content=""/> 
-	<meta property="og:url" content=""/>
+	
+	<meta property="og:title" content="웹 개발자 포트폴리오 | 게시판 리스트" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="개발자 ${pageMaker.cri.category} 게시판입니다. 다양한 게시물을 등록해주세요.">
+	<meta property="og:image" content="http://portfolio.freeserver.zone/resources/img/001.jpg"/>
+	<meta property="og:site_name" content="포트폴리오"/> 
+	<meta property="og:url" content="http://portfolio.freeserver.zone/board/list/${pageMaker.cri.category}"/>
 	
 	<title>웹 개발자 포트폴리오 | 게시판 리스트</title>
 </head>

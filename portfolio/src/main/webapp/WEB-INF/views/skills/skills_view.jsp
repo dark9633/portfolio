@@ -10,19 +10,20 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+	<meta name="author" content="freeserver.zone">
+	<meta name="keywords" content="${ view.category } ${ view.subCategory } ${ view.nickName} 자바개발자 웹개발자 서버개발자">
+	<meta name="description" content="${ description }">
 	
-	<meta property="og:title" content="" />
 	<meta property="fb:app_id" content=""/>
-	<meta property="og:type" content="" />
-	<meta property="og:description" content="">
-	<meta property="og:image" content=""/>
-	<meta property="og:site_name" content=""/> 
-	<meta property="og:url" content=""/>
 	
-	<title>웹 개발자 포트폴리오 | 스킬 상세</title>
+	<meta property="og:title" content="웹 개발자 스킬상세 | ${ view.title }" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="${ description }">
+	<meta property="og:image" content="http://portfolio.freeserver.zone/resources/img/001.jpg"/>
+	<meta property="og:site_name" content="포트폴리오"/> 
+	<meta property="og:url" content="http://portfolio.freeserver.zone/skills/view/${ view.skNumber }"/>
+	
+	<title>웹 개발자 스킬상세 | ${ view.title }</title>
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
