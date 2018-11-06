@@ -109,8 +109,11 @@
 			
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 						<h2>실시간 톡</h2>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+						<h2><span id="chatCount"></span></h2>
 					</div>
 				</div>
 				<div style="width: 100%; height: 203px; overflow-y: scroll; border: 1px solid #ddd; padding: 5px; margin-top: 30px;" id="chatDiv" class="form-group"></div>
@@ -121,9 +124,7 @@
 					<c:if test="${ member == null }">
 						<input type="text" id="chatText" class="form-control" disabled="disabled" value="로그인 후 이용할 수 있습니다.">
 					</c:if>
-					
 				</div>
-				
 				<table class="table">
 					<thead>
 						<tr>
@@ -145,7 +146,6 @@
 					</tbody>
 				</table>
 			</div>
-			
 		</div>
 	</div>
 	

@@ -7,8 +7,13 @@ webSocket.onmessage = function(event) {onMessage(event)};
 
 function onMessage(event) {
 	var message = event.data;
-	$("#chatDiv").append(message);
-	$("#chatDiv").scrollTop(30000);
+	var json = JSON.parse(event.data);
+	if(json.result == "message"){
+		$("#chatDiv").append(json.message);
+		$("#chatDiv").scrollTop(30000);
+	}else if(json.result == "connect"){
+		$("#chatCount").html(json.count);
+	}
 }
 
 function onOpen(event) {

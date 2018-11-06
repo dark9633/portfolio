@@ -3,6 +3,7 @@ package com.portfolio.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -20,14 +21,25 @@ public class Websocket extends TextWebSocketHandler{
 	public void afterConnectionEstablished(WebSocketSession session)
 			throws Exception {
 		connectedUsers.add(session);
+		
+		JSONObject json = new JSONObject();
+		json.put("result", "connect");
+		json.put("count", connectedUsers.size());
+		for(WebSocketSession webSocketSession : connectedUsers){
+			webSocketSession.sendMessage(new TextMessage(json.toString()));
+		}
+		
 	}
 	
 	@Override
 	protected void handleTextMessage(WebSocketSession session,
 			TextMessage message) throws Exception {
+		JSONObject json = new JSONObject();
+		json.put("result", "message");
+		json.put("message", message.getPayload());
 		for(WebSocketSession webSocketSession : connectedUsers){
 			if(!session.getId().equals(webSocketSession.getId())){
-				webSocketSession.sendMessage(new TextMessage(message.getPayload()));
+				webSocketSession.sendMessage(new TextMessage(json.toString()));
 			}
 		}
 	}
