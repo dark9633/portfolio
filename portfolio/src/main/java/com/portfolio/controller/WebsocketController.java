@@ -2,7 +2,9 @@ package com.portfolio.controller;
 
 
 import java.net.URLEncoder;
+import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.portfolio.domain.ChatVO;
 import com.portfolio.domain.MemberVO;
+import com.portfolio.service.EtcService;
 
 
 /*
@@ -28,6 +31,8 @@ import com.portfolio.domain.MemberVO;
 public class WebsocketController {
 	
 	//private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	@Inject private EtcService service;
 	
 	@ResponseBody
 	@RequestMapping(value = "/send", method = RequestMethod.POST)
@@ -42,12 +47,23 @@ public class WebsocketController {
 			return new ResponseEntity<String>(json.toString(), HttpStatus.OK);
 		}
 		
+		vo.setNickName(member.getNickName());
+		service.ChattingRegister(vo);
+		
 		json.put("result", "succ");
 		json.put("nickName", URLEncoder.encode(member.getNickName(), "UTF-8"));
 		json.put("content", URLEncoder.encode(vo.getContent(), "UTF-8"));
 		
 		return new ResponseEntity<String>(json.toString(), HttpStatus.OK);
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ResponseEntity<List<ChatVO>> list(HttpServletRequest request) throws Exception{
+		String ip = request.getHeader("X-FORWARDED-FOR");
+		if(ip == null){ip = request.getRemoteAddr();}
+		return new ResponseEntity<List<ChatVO>>(service.ChattingList(), HttpStatus.OK);
 	}
 	
 }

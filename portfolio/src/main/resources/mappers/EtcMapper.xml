@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.portfolio.mapper.EtcMapper">
+
+	<insert id="ChattingRegister">
+		INSERT INTO chat
+		(
+			nickName, content
+		)
+		VALUES
+		(
+			#{ nickName }, #{ content }
+		)
+	</insert>
+	
+	<select id="ChattingList" resultType="ChatVO">
+		select * from chat order by chatNumber desc limit 100
+	</select>
+	
+</mapper>

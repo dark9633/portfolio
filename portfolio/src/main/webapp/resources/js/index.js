@@ -16,11 +16,18 @@ function onMessage(event) {
 }
 
 function onOpen(event) {
-	$("#chatDiv").append("건강한 커뮤니티를 만들어갑시다.<br>");
+	$.getJSON("/ws/list", function(data){
+		var html = "";
+		$.each(data.reverse(), function(index, entry){
+			html += entry.nickName + " : " + entry.content + "<br>";
+		});
+		$("#chatDiv").append(html);
+		$("#chatDiv").scrollTop(30000);
+	});
 }
 
 function onError(event) {
-	console.log("연결 에러 "+event.data);
+	alert("대화창 연결에 실패했습니다. 지속적으로 문제가 생길경우 문의주세요.");
 }
 
 $(document).on("keyup", "#chatText", function(e){
@@ -40,7 +47,7 @@ $(document).on("keyup", "#chatText", function(e){
 				var json = JSON.parse(data);
 				if(json.result == "succ"){
 					var html = "";
-					html += decodeURIComponent(json.nickName) + " : " + decodeURIComponent(json.content) + "<br>";
+					html += decodeURIComponent(json.nickName) + " : " + decodeURIComponent(json.content).replace(/\+/g, ' ') + "<br>";
 					webSocket.send(html);
 		    		$("#chatDiv").append(html);
 		    		$("#chatDiv").scrollTop(30000);

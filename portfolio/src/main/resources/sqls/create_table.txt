@@ -80,3 +80,14 @@ alter table portfolio add simpleContent varchar(900) not null;
 alter table member add naverId varchar(100);
 아래 유니크를 추가하면 코드에서 개별적으로 유니크한 아이디를 넣어줘야 한다. 현재는 유니크 미추가
 alter table member add UNIQUE unique_id(naverId);
+
+채팅 테이블 추가
+CREATE TABLE chat(
+	chatNumber	INTEGER 			NOT NULL 	COMMENT '',
+	nickName	VARCHAR(30) 		NOT NULL 	COMMENT '채팅 작성자',
+	content		VARCHAR(3000)		NOT NULL 	COMMENT '채팅 내용'
+)
+COMMENT '채팅 테이블';
+ALTER TABLE chat ADD CONSTRAINT PK_ADMIN PRIMARY KEY(chatNumber);
+ALTER TABLE chat MODIFY COLUMN chatNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
+
