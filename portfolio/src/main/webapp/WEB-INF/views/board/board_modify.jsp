@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script src="/resources/js/board/board_modify.js"></script>
 						
 	<jsp:include page="../common/footer.jsp" />

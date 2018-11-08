@@ -36,8 +36,8 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
 	/*config.allowedContent = true;*/ //모든태그허용 iframe 때문에 주석처리
-	config.extraAllowedContent = 'img[*]{*} '; //img 태그 허용
-	config.extraPlugins = 'colorbutton,youtube,justify,smiley,font'; //플러그인 추가
+	config.extraAllowedContent = 'img[*]{*}'; //img 태그 허용
+	config.extraPlugins = 'colorbutton,youtube,justify,smiley,font,codesnippet'; //플러그인 추가
 	//config.extraPlugins = 'codesnippet'; //YOUTUBE 플러그인 추가
 	
 	config.contentsCss = '/resources/ckeditor/contents.css';

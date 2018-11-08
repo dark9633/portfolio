@@ -83,6 +83,50 @@
 				
 				<div class="row"><div class="col-lg-12"><hr></div></div>
 				
+				<p class="lead">자격증관련...</p>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								<a href="/resources/file/ocjp.pdf" target="_blank">OCJP</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								<a href="/resources/file/linux2.png" target="_blank">LINUX MASTER 2급</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								<a href="/resources/file/architectural.png" target="_blank">건축제도 기능사</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-lg-6 col-sm-6">
+					<ul>
+						<li>
+							<p>
+								<a href="/resources/file/driver.jpg" target="_blank">운전면허증</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="row"><div class="col-lg-12"><hr></div></div>
+				
 				<p class="lead">개발에대해...</p>
 				
 				<div class="col-lg-12">

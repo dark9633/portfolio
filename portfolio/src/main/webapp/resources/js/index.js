@@ -1,5 +1,4 @@
-var webSocket = new WebSocket("ws://127.0.0.1:8080/talk/");
-//var webSocket = new WebSocket("ws://portfolio.freeserver.zone/talk/");
+var webSocket = new WebSocket("ws://"+location.host+"/talk/");
 
 webSocket.onerror = function(event) {onError(event)};
 webSocket.onopen = function(event) {onOpen(event)};

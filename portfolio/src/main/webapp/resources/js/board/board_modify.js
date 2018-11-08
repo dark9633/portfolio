@@ -1,4 +1,5 @@
 //ckeditor load
+
 editor = CKEDITOR.replace("editor", {
 	width:'100%',
 	height:'350px',

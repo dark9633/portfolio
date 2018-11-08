@@ -28,7 +28,6 @@ public class Websocket extends TextWebSocketHandler{
 		for(WebSocketSession webSocketSession : connectedUsers){
 			webSocketSession.sendMessage(new TextMessage(json.toString()));
 		}
-		
 	}
 	
 	@Override
