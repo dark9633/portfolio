@@ -91,3 +91,17 @@ COMMENT '채팅 테이블';
 ALTER TABLE chat ADD CONSTRAINT PK_ADMIN PRIMARY KEY(chatNumber);
 ALTER TABLE chat MODIFY COLUMN chatNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호 PK';
 
+로그 테이블 추가
+CREATE TABLE `log`(
+	logNumber 	INTEGER 			NOT NULL COMMENT '',
+	memNumber 	INTEGER 			COMMENT '로그인시 회원 번호',
+	ip 			VARCHAR(30) 	NOT NULL COMMENT '접속자 아이피',
+	url 		VARCHAR(200) 	NOT NULL COMMENT '접속자 접근 경로',
+	device 		VARCHAR(300) 	NOT NULL COMMENT '접속자 디바이스',
+	browser 	VARCHAR(50) 	NOT NULL COMMENT '접속자 브라우저',
+	userAgent 	VARCHAR(300) 	NOT NULL COMMENT '접속자 정보',
+	regDate 	datetime 		NOT NULL DEFAULT NOW() COMMENT '등록 일자'
+)
+COMMENT '';
+ALTER TABLE `log` ADD CONSTRAINT PK_ADMIN PRIMARY KEY(logNumber);
+ALTER TABLE `log` MODIFY COLUMN logNumber INTEGER NOT NULL AUTO_INCREMENT COMMENT '등록일련번호';

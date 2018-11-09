@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.portfolio.domain.ChatVO;
+import com.portfolio.domain.LogVO;
 import com.portfolio.persistence.EtcDAO;
 
 
@@ -24,6 +25,10 @@ public class EtcServiceImpl implements EtcService{
 	public List<ChatVO> ChattingList() throws Exception {
 		return dao.ChattingList();
 	}
-	
+
+	@Override
+	public void LogRegister(LogVO vo) throws Exception {
+		dao.LogRegister(vo);
+	}
 	
 }

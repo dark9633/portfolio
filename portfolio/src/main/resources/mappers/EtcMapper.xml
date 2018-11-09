@@ -20,4 +20,15 @@
 		select * from chat order by chatNumber desc limit 100
 	</select>
 	
+	<insert id="LogRegister">
+		INSERT INTO log
+		(
+			memNumber, ip, url, device, browser, userAgent
+		)
+		VALUES 
+		(
+			#{ memNumber }, #{ ip }, #{ url }, #{ device }, #{ browser }, #{ userAgent }
+		)
+	</insert>
+	
 </mapper>

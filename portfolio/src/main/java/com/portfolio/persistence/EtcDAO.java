@@ -3,6 +3,7 @@ package com.portfolio.persistence;
 import java.util.List;
 
 import com.portfolio.domain.ChatVO;
+import com.portfolio.domain.LogVO;
 
 
 public interface EtcDAO {
@@ -12,5 +13,8 @@ public interface EtcDAO {
 	
 	/* 채팅 리스트 */
 	public List<ChatVO> ChattingList() throws Exception;
+	
+	/* 사이트 로그 */
+	public void LogRegister(LogVO vo) throws Exception;
 	
 }

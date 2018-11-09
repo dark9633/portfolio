@@ -8,4 +8,7 @@
 	<script src="/resources/bootstrap/js/bootstrap.js"></script>
 	<script src="/resources/js/common.js"></script>
 	
+	<script async src="http://127.0.0.1:8080/log"></script>
+	<!-- <script async src="http://porfolio.freeserver.zone/log"></script> -->
+	
 	<meta name="viewport" content="width=device-width" initial-scale="1">
