@@ -31,4 +31,23 @@
 		)
 	</insert>
 	
+	<select id="LogListLog" resultType="java.util.HashMap">
+		SELECT 
+			count(distinct ip) as cnt, date(regDate) as date FROM `log`
+		group by date(regDate)
+		order by date(regDate) asc
+	</select>
+	
+	<select id="LogListBrowser" resultType="java.util.HashMap">
+		select count(distinct ip, date(regDate)) as cnt, browser from `log` group by browser
+	</select>
+	
+	<select id="LogListDevice" resultType="java.util.HashMap">
+		select count(distinct ip, date(regDate)) as cnt, device from `log` group by device order by count(distinct ip, date(regDate)) desc
+	</select>
+	
+	<select id="LogListUrl" resultType="java.util.HashMap">
+		select count(distinct ip, date(regDate)) as cnt, REPLACE(url, 'https://www.pygmy.co.kr', '') as url from `log` group by url order by count(distinct ip, date(regDate)) desc
+	</select>
+	
 </mapper>

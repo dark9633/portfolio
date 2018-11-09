@@ -1,5 +1,9 @@
 package com.portfolio.utils;
 
+/*
+ * 디바이스 구분을 위한 메소드
+ * 정확한건 아닌듯 하지만 어느정도 필요한 만큼의 구분은 가능.
+ *  */
 public class DeviceCheck {
 
 	public static String deviceCheck(String userAgent) {

@@ -1,6 +1,7 @@
 package com.portfolio.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -32,6 +33,26 @@ public class EtcDAOImpl implements EtcDAO{
 	@Override
 	public void LogRegister(LogVO vo) throws Exception {
 		session.insert(namespace + ".LogRegister", vo);
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListLog() throws Exception {
+		return session.selectList(namespace + ".LogListLog");
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListBrowser() throws Exception {
+		return session.selectList(namespace + ".LogListBrowser");
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListDevice() throws Exception {
+		return session.selectList(namespace + ".LogListDevice");
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListUrl() throws Exception {
+		return session.selectList(namespace + ".LogListUrl");
 	}
 
 

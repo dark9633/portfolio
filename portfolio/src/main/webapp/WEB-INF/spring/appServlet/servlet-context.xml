@@ -51,11 +51,22 @@
 		</interceptor>
 	</interceptors>
 	
+	<beans:bean id="AdminLoginCheckInterceptor" class="com.portfolio.interceptor.AdminLoginCheckInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin"/>
+			<mapping path="/admin/"/>
+			<mapping path="/admin/log/list"/>
+			<beans:ref bean="AdminLoginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<websocket:handlers>
 		<websocket:mapping handler="websocketHandler" path="/talk/"/>
 	</websocket:handlers>
 	<beans:bean id="websocketHandler" class="com.portfolio.utils.Websocket"/>
 	
 	<context:component-scan base-package="com.portfolio.controller" />
+	<context:component-scan base-package="com.portfolio.admin.controller" />
 	
 </beans:beans>

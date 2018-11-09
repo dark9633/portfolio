@@ -1,6 +1,7 @@
 package com.portfolio.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -29,6 +30,26 @@ public class EtcServiceImpl implements EtcService{
 	@Override
 	public void LogRegister(LogVO vo) throws Exception {
 		dao.LogRegister(vo);
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListLog() throws Exception {
+		return dao.LogListLog();
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListBrowser() throws Exception {
+		return dao.LogListBrowser();
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListDevice() throws Exception {
+		return dao.LogListDevice();
+	}
+
+	@Override
+	public List<Map<?, ?>> LogListUrl() throws Exception {
+		return dao.LogListUrl();
 	}
 	
 }
