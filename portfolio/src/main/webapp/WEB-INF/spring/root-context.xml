@@ -16,9 +16,9 @@
 	<!-- default dataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://{127.0.0.1}/{database}"/>
-		<property name="username" value="{username}"/>
-		<property name="password" value="{password}"></property>
+		<property name="url" value="jdbc:mysql://211.223.2.197/portfolio"/>
+		<property name="username" value="kimnam"/>
+		<property name="password" value="thffnsktltmxpa12"></property>
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

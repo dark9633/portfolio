@@ -20,6 +20,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import search.Search;
+
 import com.portfolio.domain.LogVO;
 import com.portfolio.domain.MemberVO;
 import com.portfolio.domain.SkillsVO;
@@ -47,6 +49,9 @@ public class MainController {
 	/* 메인 인덱스 페이지 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) throws Exception {
+		
+		Search.searchAddress("광주광역시북구두암동", "1");
+		
 		List<SkillsVO> skills = sService.SkillsListGroupNew();
 		List<Map<String, Object>> array = new ArrayList<Map<String,Object>>();
 		for (SkillsVO skill : skills) {
