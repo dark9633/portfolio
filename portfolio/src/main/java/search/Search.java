@@ -140,7 +140,7 @@ public class Search
     try
     {
     	
-      address = URLEncoder.encode(address, "UTF-8");
+      address = URLEncoder.encode(address.replaceAll(" ", ""), "UTF-8");
       
       String kakaoApiKey = "529a0e6a54df04e779905a3d1ac0d4a4";
       String localSearchUrl = "http://dapi.kakao.com/v2/local/search/address.xml?query="+address;
@@ -204,7 +204,7 @@ public class Search
     try
     {
     	
-      address = URLEncoder.encode(address, "UTF-8");
+      address = URLEncoder.encode(address.replaceAll(" ", ""), "UTF-8");
       String display = (endNum == -1) ? "30" : "5";
       if(startNum == -1){ startNum = 1; }
       
